@@ -1,0 +1,4131 @@
+[standard]
+id = "jose-jwt"
+version = "1.2.0"
+provenance = "external"
+slice = true
+title = "JOSE/JWT requirements"
+edition = "RFC 7515, 7517, 7518, 7519, 7520, 7638, 7797, 8037, 8725"
+numbering = "JOSE-<RFC>-<section>-<ordinal>"
+slice_note = "A selection of JOSE and JWT requirements. It includes algorithm tables, grammar rules and examples. Remote key retrieval is conditional; encryption and registration requirements have a limited scope."
+
+[[clause]]
+id = "JOSE-7515-2-1"
+ref = "RFC 7515 section 2"
+title = "Base64url alphabet and omitted padding"
+rfc = 7515
+section = "2"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-2"]
+source = "RFC 7515"
+line_start = 287
+line_end = 292
+
+[[clause]]
+id = "JOSE-7515-3.1-1"
+ref = "RFC 7515 section 3.1"
+title = "Three compact segments"
+rfc = 7515
+section = "3.1"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-3.1"]
+source = "RFC 7515"
+line_start = 385
+line_end = 387
+
+[[clause]]
+id = "JOSE-7515-4-1"
+ref = "RFC 7515 section 4"
+title = "Unique header names and unknown optional headers"
+rfc = 7515
+section = "4"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4"]
+source = "RFC 7515"
+line_start = 493
+line_end = 497
+
+[[clause]]
+id = "JOSE-7515-4.1.1-1"
+ref = "RFC 7515 section 4.1.1"
+title = "Required understood algorithm"
+rfc = 7515
+section = "4.1.1"
+force = "MUST"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.1"]
+source = "RFC 7515"
+line_start = 542
+line_end = 544
+
+[[clause]]
+id = "JOSE-7515-4.1.2-1"
+ref = "RFC 7515 section 4.1.2"
+title = "JWK URL string"
+rfc = 7515
+section = "4.1.2"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.2"]
+source = "RFC 7515"
+line_start = 553
+line_end = 555
+
+[[clause]]
+id = "JOSE-7515-4.1.3-1"
+ref = "RFC 7515 section 4.1.3"
+title = "Embedded public JWK"
+rfc = 7515
+section = "4.1.3"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.3"]
+source = "RFC 7515"
+line_start = 575
+line_end = 576
+
+[[clause]]
+id = "JOSE-7515-4.1.4-1"
+ref = "RFC 7515 section 4.1.4"
+title = "Case-sensitive key identifier"
+rfc = 7515
+section = "4.1.4"
+force = "MUST"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.4"]
+source = "RFC 7515"
+line_start = 584
+line_end = 585
+
+[[clause]]
+id = "JOSE-7515-4.1.5-1"
+ref = "RFC 7515 section 4.1.5"
+title = "The signing key's certificate MUST come first in the x5u resource"
+rfc = 7515
+section = "4.1.5"
+force = "MUST"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.5"]
+source = "RFC 7515"
+line_start = 598
+line_end = 600
+
+[[clause]]
+id = "JOSE-7515-4.1.6-1"
+ref = "RFC 7515 section 4.1.6"
+title = "The signing key's certificate MUST come first in x5c"
+rfc = 7515
+section = "4.1.6"
+force = "MUST"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.6"]
+source = "RFC 7515"
+line_start = 625
+line_end = 627
+
+[[clause]]
+id = "JOSE-7515-4.1.7-1"
+ref = "RFC 7515 section 4.1.7"
+title = "SHA1 thumbprint header string"
+rfc = 7515
+section = "4.1.7"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.7"]
+source = "RFC 7515"
+line_start = 638
+line_end = 641
+
+[[clause]]
+id = "JOSE-7515-4.1.8-1"
+ref = "RFC 7515 section 4.1.8"
+title = "SHA256 thumbprint header name"
+rfc = 7515
+section = "4.1.8"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.8"]
+source = "RFC 7515"
+line_start = 648
+line_end = 651
+
+[[clause]]
+id = "JOSE-7515-4.1.9-1"
+ref = "RFC 7515 section 4.1.9"
+title = "Type header string"
+rfc = 7515
+section = "4.1.9"
+force = "grammar"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.9"]
+source = "RFC 7515"
+line_start = 657
+line_end = 658
+
+[[clause]]
+id = "JOSE-7515-4.1.10-1"
+ref = "RFC 7515 section 4.1.10"
+title = "Content type header string"
+rfc = 7515
+section = "4.1.10"
+force = "grammar"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.10"]
+source = "RFC 7515"
+line_start = 698
+line_end = 700
+
+[[clause]]
+id = "JOSE-7515-4.1.11-1"
+ref = "RFC 7515 section 4.1.11"
+title = "Reject unsupported critical extensions"
+rfc = 7515
+section = "4.1.11"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.11-understand"]
+source = "RFC 7515"
+line_start = 737
+line_end = 742
+
+[[clause]]
+id = "JOSE-7515-4.1.11-2"
+ref = "RFC 7515 section 4.1.11"
+title = "Do not emit empty critical list"
+rfc = 7515
+section = "4.1.11"
+force = "MUST NOT"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.11-empty"]
+source = "RFC 7515"
+line_start = 746
+line_end = 747
+
+[[clause]]
+id = "JOSE-7515-4.1.11-3"
+ref = "RFC 7515 section 4.1.11"
+title = "Do not emit duplicate critical names"
+rfc = 7515
+section = "4.1.11"
+force = "MUST NOT"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.11-duplicate"]
+source = "RFC 7515"
+line_start = 742
+line_end = 746
+
+[[clause]]
+id = "JOSE-7515-4.1.11-4"
+ref = "RFC 7515 section 4.1.11"
+title = "Do not emit registered critical names"
+rfc = 7515
+section = "4.1.11"
+force = "MUST NOT"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.11-registered"]
+source = "RFC 7515"
+line_start = 742
+line_end = 746
+
+[[clause]]
+id = "JOSE-7515-4.1.11-5"
+ref = "RFC 7515 section 4.1.11"
+title = "Producers MUST NOT list absent header names in crit"
+rfc = 7515
+section = "4.1.11"
+force = "MUST NOT"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.11-present"]
+source = "RFC 7515"
+line_start = 742
+line_end = 746
+
+[[clause]]
+id = "JOSE-7515-4.1.11-6"
+ref = "RFC 7515 section 4.1.11"
+title = "Critical header is protected"
+rfc = 7515
+section = "4.1.11"
+force = "MUST"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-4.1.11-protected"]
+source = "RFC 7515"
+line_start = 750
+line_end = 752
+
+[[clause]]
+id = "JOSE-7515-5.1-1"
+ref = "RFC 7515 section 5.1"
+title = "Signing input is encoded header and payload"
+rfc = 7515
+section = "5.1"
+force = "grammar"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-5.1"]
+source = "RFC 7515"
+line_start = 817
+line_end = 820
+
+[[clause]]
+id = "JOSE-7515-5.2-1"
+ref = "RFC 7515 section 5.2"
+title = "Exactly two compact separators"
+rfc = 7515
+section = "5.2"
+force = "grammar"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-5.2-1"]
+source = "RFC 7515"
+line_start = 869
+line_end = 874
+
+[[clause]]
+id = "JOSE-7515-5.2-2"
+ref = "RFC 7515 section 5.2"
+title = "Strict header base64url"
+rfc = 7515
+section = "5.2"
+force = "grammar"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-5.2-2"]
+source = "RFC 7515"
+line_start = 877
+line_end = 879
+
+[[clause]]
+id = "JOSE-7515-5.2-3"
+ref = "RFC 7515 section 5.2"
+title = "Header is a complete UTF8 JSON object"
+rfc = 7515
+section = "5.2"
+force = "grammar"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-5.2-3"]
+source = "RFC 7515"
+line_start = 881
+line_end = 884
+
+[[clause]]
+id = "JOSE-7515-5.2-4"
+ref = "RFC 7515 section 5.2"
+title = "Process required header values"
+rfc = 7515
+section = "5.2"
+force = "grammar"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-5.2-5"]
+source = "RFC 7515"
+line_start = 907
+line_end = 911
+
+[[clause]]
+id = "JOSE-7515-5.2-5"
+ref = "RFC 7515 section 5.2"
+title = "Strict payload base64url"
+rfc = 7515
+section = "5.2"
+force = "grammar"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-5.2-6"]
+source = "RFC 7515"
+line_start = 913
+line_end = 915
+
+[[clause]]
+id = "JOSE-7515-5.2-6"
+ref = "RFC 7515 section 5.2"
+title = "Strict signature base64url"
+rfc = 7515
+section = "5.2"
+force = "grammar"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-5.2-7"]
+source = "RFC 7515"
+line_start = 917
+line_end = 919
+
+[[clause]]
+id = "JOSE-7515-5.2-7"
+ref = "RFC 7515 section 5.2"
+title = "Verify signature with stated algorithm"
+rfc = 7515
+section = "5.2"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-5.2-8"]
+source = "RFC 7515"
+line_start = 921
+line_end = 925
+
+[[clause]]
+id = "JOSE-7515-5.2-8"
+ref = "RFC 7515 section 5.2"
+title = "Reject invalid signature"
+rfc = 7515
+section = "5.2"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-5.2-10"]
+source = "RFC 7515"
+line_start = 933
+line_end = 934
+
+[[clause]]
+id = "JOSE-7515-5.3-1"
+ref = "RFC 7515 section 5.3"
+title = "Exact JSON string comparisons"
+rfc = 7515
+section = "5.3"
+force = "MUST"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-5.3"]
+source = "RFC 7515"
+line_start = 969
+line_end = 972
+
+[[clause]]
+id = "JOSE-7515-7.2.2-1"
+ref = "RFC 7515 section 7.2.2"
+title = "Flattened JWS JSON MUST NOT contain a signatures member"
+rfc = 7515
+section = "7.2.2"
+force = "MUST NOT"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+aliases = ["RFC7515-7.2.2"]
+source = "RFC 7515"
+line_start = 1169
+line_end = 1169
+
+[[clause]]
+id = "JOSE-7515-10.12-1"
+ref = "RFC 7515 section 10.12"
+title = "Complete JSON syntax"
+rfc = 7515
+section = "10.12"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-10.12"]
+source = "RFC 7515"
+line_start = 1698
+line_end = 1700
+
+[[clause]]
+id = "JOSE-7517-4-1"
+ref = "RFC 7517 section 4"
+title = "Unique JWK names and unknown members"
+rfc = 7517
+section = "4"
+force = "MUST"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-4"]
+source = "RFC 7517"
+line_start = 264
+line_end = 267
+
+[[clause]]
+id = "JOSE-7517-4.1-1"
+ref = "RFC 7517 section 4.1"
+title = "Required key type"
+rfc = 7517
+section = "4.1"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-4.1"]
+source = "RFC 7517"
+line_start = 293
+line_end = 294
+
+[[clause]]
+id = "JOSE-7517-4.2-1"
+ref = "RFC 7517 section 4.2"
+title = "Public key use string"
+rfc = 7517
+section = "4.2"
+force = "grammar"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-4.2"]
+source = "RFC 7517"
+line_start = 317
+line_end = 318
+
+[[clause]]
+id = "JOSE-7517-4.3-1"
+ref = "RFC 7517 section 4.3"
+title = "Key operations array without duplicates"
+rfc = 7517
+section = "4.3"
+force = "MUST NOT"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-4.3"]
+source = "RFC 7517"
+line_start = 367
+line_end = 368
+
+[[clause]]
+id = "JOSE-7517-4.4-1"
+ref = "RFC 7517 section 4.4"
+title = "Key algorithm string"
+rfc = 7517
+section = "4.4"
+force = "grammar"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-4.4"]
+source = "RFC 7517"
+line_start = 405
+line_end = 405
+
+[[clause]]
+id = "JOSE-7517-4.5-1"
+ref = "RFC 7517 section 4.5"
+title = "Case-sensitive key ID"
+rfc = 7517
+section = "4.5"
+force = "grammar"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-4.5"]
+source = "RFC 7517"
+line_start = 414
+line_end = 418
+
+[[clause]]
+id = "JOSE-7517-4.6-1"
+ref = "RFC 7517 section 4.6"
+title = "The first x5u certificate's key MUST match the JWK"
+rfc = 7517
+section = "4.6"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-4.6"]
+source = "RFC 7517"
+line_start = 429
+line_end = 431
+
+[[clause]]
+id = "JOSE-7517-4.7-1"
+ref = "RFC 7517 section 4.7"
+title = "Certificate chain model"
+rfc = 7517
+section = "4.7"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-4.7"]
+source = "RFC 7517"
+line_start = 466
+line_end = 467
+
+[[clause]]
+id = "JOSE-7517-4.8-1"
+ref = "RFC 7517 section 4.8"
+title = "Certificate SHA1 thumbprint model"
+rfc = 7517
+section = "4.8"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-4.8"]
+source = "RFC 7517"
+line_start = 486
+line_end = 487
+
+[[clause]]
+id = "JOSE-7517-4.9-1"
+ref = "RFC 7517 section 4.9"
+title = "Certificate SHA256 thumbprint model"
+rfc = 7517
+section = "4.9"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-4.9"]
+source = "RFC 7517"
+line_start = 517
+line_end = 518
+
+[[clause]]
+id = "JOSE-7517-5-1"
+ref = "RFC 7517 section 5"
+title = "JWK Sets MUST have a keys member holding an array of JWKs"
+rfc = 7517
+section = "5"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-5"]
+source = "RFC 7517"
+line_start = 529
+line_end = 531
+
+[[clause]]
+id = "JOSE-7517-5-2"
+ref = "RFC 7517 section 5"
+title = "Preserve set with unsupported keys"
+rfc = 7517
+section = "5"
+force = "SHOULD"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7517-5-unknown"]
+source = "RFC 7517"
+line_start = 546
+line_end = 549
+
+[[clause]]
+id = "JOSE-7518-2-1"
+ref = "RFC 7518 section 2"
+title = "Minimal unsigned base64url integer encoding"
+rfc = 7518
+section = "2"
+force = "MUST"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-2"]
+source = "RFC 7518"
+line_start = 274
+line_end = 276
+
+[[clause]]
+id = "JOSE-7518-3.2-1"
+ref = "RFC 7518 section 3.2"
+title = "HMAC key at least hash output size"
+rfc = 7518
+section = "3.2"
+force = "MUST"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-3.2-key"]
+source = "RFC 7518"
+line_start = 351
+line_end = 352
+
+[[clause]]
+id = "JOSE-7518-3.2-2"
+ref = "RFC 7518 section 3.2"
+title = "HMAC SHA-256 is computed over the signing input with the shared key"
+rfc = 7518
+section = "3.2"
+force = "grammar"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-3.2-mac"]
+source = "RFC 7518"
+line_start = 358
+line_end = 360
+
+[[clause]]
+id = "JOSE-7518-3.3-1"
+ref = "RFC 7518 section 3.3"
+title = "RSA modulus at least 2048 bits"
+rfc = 7518
+section = "3.3"
+force = "MUST"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-3.3-key"]
+source = "RFC 7518"
+line_start = 413
+line_end = 413
+
+[[clause]]
+id = "JOSE-7518-3.3-2"
+ref = "RFC 7518 section 3.3"
+title = "RSASSA PKCS1 signatures"
+rfc = 7518
+section = "3.3"
+force = "grammar"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-3.3-sign"]
+source = "RFC 7518"
+line_start = 415
+line_end = 418
+
+[[clause]]
+id = "JOSE-7518-3.4-1"
+ref = "RFC 7518 section 3.4"
+title = "ECDSA curve agrees with algorithm"
+rfc = 7518
+section = "3.4"
+force = "grammar"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-3.4-curve"]
+source = "RFC 7518"
+line_start = 464
+line_end = 467
+
+[[clause]]
+id = "JOSE-7518-3.4-2"
+ref = "RFC 7518 section 3.4"
+title = "ECDSA fixed width signature"
+rfc = 7518
+section = "3.4"
+force = "MUST"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-3.4-length"]
+source = "RFC 7518"
+line_start = 514
+line_end = 514
+
+[[clause]]
+id = "JOSE-7518-3.5-1"
+ref = "RFC 7518 section 3.5"
+title = "PSS modulus at least 2048 bits"
+rfc = 7518
+section = "3.5"
+force = "MUST"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-3.5-key"]
+source = "RFC 7518"
+line_start = 551
+line_end = 551
+
+[[clause]]
+id = "JOSE-7518-3.5-2"
+ref = "RFC 7518 section 3.5"
+title = "PSS salt equals hash output size"
+rfc = 7518
+section = "3.5"
+force = "grammar"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-3.5-salt"]
+source = "RFC 7518"
+line_start = 547
+line_end = 548
+
+[[clause]]
+id = "JOSE-7518-6.2.1-1"
+ref = "RFC 7518 section 6.2.1"
+title = "EC required curve and coordinates"
+rfc = 7518
+section = "6.2.1"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7518-6.2.1-ec-public"]
+source = "RFC 7518"
+line_start = 1547
+line_end = 1548
+
+[[clause]]
+id = "JOSE-7518-6.3.1-1"
+ref = "RFC 7518 section 6.3.1"
+title = "RSA required modulus and exponent"
+rfc = 7518
+section = "6.3.1"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7518-6.3.1-rsa-public"]
+source = "RFC 7518"
+line_start = 1639
+line_end = 1639
+
+[[clause]]
+id = "JOSE-7518-6.4.1-1"
+ref = "RFC 7518 section 6.4.1"
+title = "Octet key base64url value"
+rfc = 7518
+section = "6.4.1"
+force = "grammar"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7518-6.4-octet", "JOSE-7518-6.4-1"]
+source = "RFC 7518"
+line_start = 1766
+line_end = 1767
+
+[[clause]]
+id = "JOSE-7519-2-1"
+ref = "RFC 7519 section 2"
+title = "NumericDate includes fractional numbers"
+rfc = 7519
+section = "2"
+force = "grammar"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-2-NumericDate"]
+source = "RFC 7519"
+line_start = 287
+line_end = 293
+
+[[clause]]
+id = "JOSE-7519-4-1"
+ref = "RFC 7519 section 4"
+title = "Claims object unique names and unknown claims"
+rfc = 7519
+section = "4"
+force = "MUST"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4"]
+source = "RFC 7519"
+line_start = 428
+line_end = 432
+
+[[clause]]
+id = "JOSE-7519-4.1.1-1"
+ref = "RFC 7519 section 4.1.1"
+title = "Issuer is a StringOrURI"
+rfc = 7519
+section = "4.1.1"
+force = "grammar"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.1"]
+source = "RFC 7519"
+line_start = 470
+line_end = 471
+
+[[clause]]
+id = "JOSE-7519-4.1.2-1"
+ref = "RFC 7519 section 4.1.2"
+title = "Subject is a StringOrURI"
+rfc = 7519
+section = "4.1.2"
+force = "grammar"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.2"]
+source = "RFC 7519"
+line_start = 479
+line_end = 481
+
+[[clause]]
+id = "JOSE-7519-4.1.3-1"
+ref = "RFC 7519 section 4.1.3"
+title = "Audience string recipient membership"
+rfc = 7519
+section = "4.1.3"
+force = "MAY"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.3-string"]
+source = "RFC 7519"
+line_start = 491
+line_end = 493
+
+[[clause]]
+id = "JOSE-7519-4.1.3-2"
+ref = "RFC 7519 section 4.1.3"
+title = "Audience array recipient membership"
+rfc = 7519
+section = "4.1.3"
+force = "MUST"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.3-array"]
+source = "RFC 7519"
+line_start = 487
+line_end = 490
+
+[[clause]]
+id = "JOSE-7519-4.1.3-3"
+ref = "RFC 7519 section 4.1.3"
+title = "Audience is string or string array"
+rfc = 7519
+section = "4.1.3"
+force = "grammar"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.3-type"]
+source = "RFC 7519"
+line_start = 490
+line_end = 491
+
+[[clause]]
+id = "JOSE-7519-4.1.4-1"
+ref = "RFC 7519 section 4.1.4"
+title = "Expiration rejects equality without leeway"
+rfc = 7519
+section = "4.1.4"
+force = "MUST"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.4-boundary"]
+source = "RFC 7519"
+line_start = 500
+line_end = 502
+
+[[clause]]
+id = "JOSE-7519-4.1.4-2"
+ref = "RFC 7519 section 4.1.4"
+title = "Expiration is a JSON number"
+rfc = 7519
+section = "4.1.4"
+force = "MUST"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.4-type"]
+source = "RFC 7519"
+line_start = 512
+line_end = 513
+
+[[clause]]
+id = "JOSE-7519-4.1.4-3"
+ref = "RFC 7519 section 4.1.4"
+title = "Configured expiration clock skew"
+rfc = 7519
+section = "4.1.4"
+force = "MAY"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.4-leeway"]
+source = "RFC 7519"
+line_start = 511
+line_end = 512
+
+[[clause]]
+id = "JOSE-7519-4.1.5-1"
+ref = "RFC 7519 section 4.1.5"
+title = "Not-before accepts equality"
+rfc = 7519
+section = "4.1.5"
+force = "MUST"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.5-boundary"]
+source = "RFC 7519"
+line_start = 518
+line_end = 520
+
+[[clause]]
+id = "JOSE-7519-4.1.5-2"
+ref = "RFC 7519 section 4.1.5"
+title = "Not-before is a JSON number"
+rfc = 7519
+section = "4.1.5"
+force = "MUST"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.5-type"]
+source = "RFC 7519"
+line_start = 522
+line_end = 523
+
+[[clause]]
+id = "JOSE-7519-4.1.5-3"
+ref = "RFC 7519 section 4.1.5"
+title = "Configured not-before clock skew"
+rfc = 7519
+section = "4.1.5"
+force = "MAY"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.5-leeway"]
+source = "RFC 7519"
+line_start = 520
+line_end = 522
+
+[[clause]]
+id = "JOSE-7519-4.1.6-1"
+ref = "RFC 7519 section 4.1.6"
+title = "Issued-at is a NumericDate"
+rfc = 7519
+section = "4.1.6"
+force = "MUST"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.6"]
+source = "RFC 7519"
+line_start = 528
+line_end = 529
+
+[[clause]]
+id = "JOSE-7519-4.1.7-1"
+ref = "RFC 7519 section 4.1.7"
+title = "JWT identifier is a string"
+rfc = 7519
+section = "4.1.7"
+force = "grammar"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-4.1.7"]
+source = "RFC 7519"
+line_start = 540
+line_end = 541
+
+[[clause]]
+id = "JOSE-7519-5.1-1"
+ref = "RFC 7519 section 5.1"
+title = "When typ is present, its value SHOULD be JWT"
+rfc = 7519
+section = "5.1"
+force = "SHOULD"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-5.1"]
+source = "RFC 7519"
+line_start = 593
+line_end = 594
+
+[[clause]]
+id = "JOSE-7519-5.2-1"
+ref = "RFC 7519 section 5.2"
+title = "Nested JWT content type"
+rfc = 7519
+section = "5.2"
+force = "MUST"
+side = "producer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-5.2"]
+source = "RFC 7519"
+line_start = 607
+line_end = 610
+
+[[clause]]
+id = "JOSE-7519-7.2-1"
+ref = "RFC 7519 section 7.2"
+title = "All JWT validation steps succeed"
+rfc = 7519
+section = "7.2"
+force = "MUST"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-7.2"]
+source = "RFC 7519"
+line_start = 757
+line_end = 759
+
+[[clause]]
+id = "JOSE-7519-7.2-2"
+ref = "RFC 7519 section 7.2"
+title = "Claims decode to a JSON object"
+rfc = 7519
+section = "7.2"
+force = "grammar"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-7.2-json"]
+source = "RFC 7519"
+line_start = 811
+line_end = 813
+
+[[clause]]
+id = "JOSE-7519-7.3-1"
+ref = "RFC 7519 section 7.3"
+title = "Case-sensitive claim comparisons"
+rfc = 7519
+section = "7.3"
+force = "MUST"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+aliases = ["RFC7519-7.3"]
+source = "RFC 7519"
+line_start = 834
+line_end = 837
+
+[[clause]]
+id = "JOSE-7638-3-1"
+ref = "RFC 7638 section 3"
+title = "Hash canonical required public members"
+rfc = 7638
+section = "3"
+force = "grammar"
+side = "producer"
+feature_area = "thumbprint"
+profile = "thumbprint"
+aliases = ["RFC7638-3"]
+source = "RFC 7638"
+line_start = 134
+line_end = 138
+
+[[clause]]
+id = "JOSE-7638-3.1-1"
+ref = "RFC 7638 section 3.1"
+title = "RSA official thumbprint example"
+rfc = 7638
+section = "3.1"
+force = "grammar"
+side = "both"
+feature_area = "thumbprint"
+profile = "thumbprint"
+aliases = ["RFC7638-3.1"]
+source = "RFC 7638"
+line_start = 177
+line_end = 178
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7638-3.2-1"
+ref = "RFC 7638 section 3.2"
+title = "Correct member set per key type"
+rfc = 7638
+section = "3.2"
+force = "grammar"
+side = "producer"
+feature_area = "thumbprint"
+profile = "thumbprint"
+aliases = ["RFC7638-3.2"]
+source = "RFC 7638"
+line_start = 290
+line_end = 293
+
+[[clause]]
+id = "JOSE-7638-3.3-1"
+ref = "RFC 7638 section 3.3"
+title = "Lexical order and no whitespace"
+rfc = 7638
+section = "3.3"
+force = "grammar"
+side = "producer"
+feature_area = "thumbprint"
+profile = "thumbprint"
+aliases = ["RFC7638-3.3"]
+source = "RFC 7638"
+line_start = 369
+line_end = 370
+
+[[clause]]
+id = "JOSE-7638-3.2.2-1"
+ref = "RFC 7638 section 3.2.2"
+title = "Optional members do not change thumbprint"
+rfc = 7638
+section = "3.2.2"
+force = "grammar"
+side = "producer"
+feature_area = "thumbprint"
+profile = "thumbprint"
+aliases = ["RFC7638-3.2.2-optional"]
+source = "RFC 7638"
+line_start = 345
+line_end = 347
+
+[[clause]]
+id = "JOSE-8037-2-1"
+ref = "RFC 8037 section 2"
+title = "OKP public key required members"
+rfc = 8037
+section = "2"
+force = "MUST"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+aliases = ["RFC8037-2"]
+source = "RFC 8037"
+line_start = 140
+line_end = 146
+
+[[clause]]
+id = "JOSE-8037-3.1-1"
+ref = "RFC 8037 section 3.1"
+title = "EdDSA uses Ed25519 curve"
+rfc = 8037
+section = "3.1"
+force = "grammar"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+test_scope = "Ed25519 subtype selects the Ed25519 variant."
+aliases = ["RFC8037-3.1"]
+source = "RFC 8037"
+line_start = 194
+line_end = 195
+
+[[clause]]
+id = "JOSE-8037-3.1.2-1"
+ref = "RFC 8037 section 3.1.2"
+title = "Ed25519 exact signature validation"
+rfc = 8037
+section = "3.1.2"
+force = "grammar"
+side = "consumer"
+feature_area = "OKP"
+profile = "okp"
+aliases = ["RFC8037-3.1.2-verify"]
+source = "RFC 8037"
+line_start = 207
+line_end = 209
+
+[[clause]]
+id = "JOSE-8037-A.1-1"
+ref = "RFC 8037 section A.1"
+title = "Private Ed25519 key example"
+rfc = 8037
+section = "A.1"
+force = "grammar"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+aliases = ["RFC8037-A.1"]
+source = "RFC 8037"
+line_start = 462
+line_end = 464
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-8037-A.2-1"
+ref = "RFC 8037 section A.2"
+title = "Public Ed25519 key example"
+rfc = 8037
+section = "A.2"
+force = "grammar"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+aliases = ["RFC8037-A.2"]
+source = "RFC 8037"
+line_start = 478
+line_end = 479
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-8037-A.3-1"
+ref = "RFC 8037 section A.3"
+title = "Official OKP thumbprint"
+rfc = 8037
+section = "A.3"
+force = "grammar"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+aliases = ["RFC8037-A.3"]
+source = "RFC 8037"
+line_start = 486
+line_end = 487
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-8037-A.4-1"
+ref = "RFC 8037 section A.4"
+title = "Official Ed25519 signing bytes"
+rfc = 8037
+section = "A.4"
+force = "grammar"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+aliases = ["RFC8037-A.4"]
+source = "RFC 8037"
+line_start = 513
+line_end = 513
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-8037-A.5-1"
+ref = "RFC 8037 section A.5"
+title = "Official Ed25519 validation"
+rfc = 8037
+section = "A.5"
+force = "grammar"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+aliases = ["RFC8037-A.5"]
+source = "RFC 8037"
+line_start = 569
+line_end = 569
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7797-6-1"
+ref = "RFC 7797 section 6"
+title = "Producers using b64 MUST list b64 in crit"
+rfc = 7797
+section = "6"
+force = "MUST"
+side = "producer"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+aliases = ["RFC7797-6-b64-critical", "JOSE-7797-6-2"]
+source = "RFC 7797"
+line_start = 457
+line_end = 460
+
+[[clause]]
+id = "JOSE-7797-7-1"
+ref = "RFC 7797 section 7"
+title = "JWT does not use unencoded payload"
+rfc = 7797
+section = "7"
+force = "MUST NOT"
+side = "both"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+aliases = ["RFC7797-7"]
+source = "RFC 7797"
+line_start = 476
+line_end = 477
+
+[[clause]]
+id = "JOSE-8725-3.1-1"
+ref = "RFC 8725 section 3.1"
+title = "Caller selects allowed algorithms"
+rfc = 8725
+section = "3.1"
+force = "MUST"
+side = "both"
+feature_area = "BCP"
+profile = "bcp"
+test_scope = "The implementation MUST let the caller select the permitted algorithms."
+aliases = ["RFC8725-3.1-allow"]
+source = "RFC 8725"
+line_start = 287
+line_end = 289
+
+[[clause]]
+id = "JOSE-8725-3.1-2"
+ref = "RFC 8725 section 3.1"
+title = "Header algorithm matches cryptographic operation"
+rfc = 8725
+section = "3.1"
+force = "MUST"
+side = "both"
+feature_area = "BCP"
+profile = "bcp"
+aliases = ["RFC8725-3.1-match"]
+source = "RFC 8725"
+line_start = 289
+line_end = 291
+
+[[clause]]
+id = "JOSE-8725-3.1-3"
+ref = "RFC 8725 section 3.1"
+title = "Each key is bound to exactly one algorithm"
+rfc = 8725
+section = "3.1"
+force = "MUST"
+side = "both"
+feature_area = "BCP"
+profile = "bcp"
+aliases = ["RFC8725-3.1-key"]
+source = "RFC 8725"
+line_start = 291
+line_end = 293
+
+[[clause]]
+id = "JOSE-8725-3.2-1"
+ref = "RFC 8725 section 3.2"
+title = "No unsecured JWT by default"
+rfc = 8725
+section = "3.2"
+force = "SHOULD NOT"
+side = "producer"
+feature_area = "BCP"
+profile = "bcp"
+aliases = ["RFC8725-3.2"]
+source = "RFC 8725"
+line_start = 319
+line_end = 320
+
+[[clause]]
+id = "JOSE-8725-3.3-1"
+ref = "RFC 8725 section 3.3"
+title = "All signatures are validated"
+rfc = 8725
+section = "3.3"
+force = "MUST"
+side = "consumer"
+feature_area = "BCP"
+profile = "bcp"
+aliases = ["RFC8725-3.3"]
+source = "RFC 8725"
+line_start = 342
+line_end = 343
+
+[[clause]]
+id = "JOSE-8725-3.4-1"
+ref = "RFC 8725 section 3.4"
+title = "Invalid EC inputs are rejected"
+rfc = 8725
+section = "3.4"
+force = "MUST"
+side = "consumer"
+feature_area = "BCP"
+profile = "jwe"
+aliases = ["RFC8725-3.4"]
+source = "RFC 8725"
+line_start = 360
+line_end = 364
+
+[[clause]]
+id = "JOSE-8725-3.7-1"
+ref = "RFC 8725 section 3.7"
+title = "UTF8 JSON only"
+rfc = 8725
+section = "3.7"
+force = "MUST"
+side = "both"
+feature_area = "BCP"
+profile = "bcp"
+side_note = "Producers emit UTF-8 JSON; consumers admit UTF-8 JSON and reject other Unicode encodings."
+aliases = ["RFC8725-3.7"]
+source = "RFC 8725"
+line_start = 389
+line_end = 390
+
+[[clause]]
+id = "JOSE-8725-3.8-1"
+ref = "RFC 8725 section 3.8"
+title = "Bind verification keys to the claimed issuer"
+rfc = 8725
+section = "3.8"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+aliases = ["RFC8725-3.8", "JOSE-8725-3.8-2"]
+source = "RFC 8725"
+line_start = 394
+line_end = 396
+
+[[clause]]
+id = "JOSE-8725-3.9-1"
+ref = "RFC 8725 section 3.9"
+title = "Configured audience checks"
+rfc = 8725
+section = "3.9"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+aliases = ["RFC8725-3.9"]
+source = "RFC 8725"
+line_start = 422
+line_end = 424
+
+[[clause]]
+id = "JOSE-7515-7.2.1-1"
+ref = "RFC 7515 section 7.2.1"
+title = "General multi-signature serialization"
+rfc = 7515
+section = "7.2.1"
+force = "MUST"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+aliases = ["RFC7515-7.2.1", "JOSE-7515-7.2.1-3"]
+source = "RFC 7515"
+line_start = 1080
+line_end = 1081
+
+[[clause]]
+id = "JOSE-7515-8-1"
+ref = "RFC 7515 section 8"
+title = "Implementations with jku/x5u support MUST also support TLS"
+rfc = 7515
+section = "8"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "remote-key-retrieval"
+condition = "Applies when an implementation retrieves keys or certificates from a remote location, including a client that fetches a JWK Set. Header pass-through alone does not activate this condition."
+side_note = "Remote key or certificate retrieval requires TLS transport capability; merely carrying jku or x5u does not activate retrieval."
+aliases = ["RFC7515-8"]
+source = "RFC 7515"
+line_start = 1198
+line_end = 1199
+
+[[clause]]
+id = "JOSE-7518-3.6-1"
+ref = "RFC 7518 section 3.6"
+title = "Unsecured JWS MUST have an empty signature value"
+rfc = 7518
+section = "3.6"
+force = "MUST"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-3.6"]
+source = "RFC 7518"
+line_start = 596
+line_end = 598
+
+[[clause]]
+id = "JOSE-7518-3.4-3"
+ref = "RFC 7518 section 3.4"
+title = "P521 signatures"
+rfc = 7518
+section = "3.4"
+force = "grammar"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+aliases = ["RFC7518-3.4-ES512"]
+source = "RFC 7518"
+line_start = 526
+line_end = 529
+
+[[clause]]
+id = "JOSE-7518-4-1"
+ref = "RFC 7518 section 4 and 5"
+title = "JWE algorithms"
+rfc = 7518
+section = "4"
+force = "grammar"
+side = "both"
+feature_area = "JWA alg"
+profile = "jwe"
+aliases = ["RFC7518-4-5"]
+source = "RFC 7518"
+line_start = 613
+line_end = 614
+
+[[clause]]
+id = "JOSE-7518-6.2.2-1"
+ref = "RFC 7518 section 6.2.2"
+title = "Private JWK import"
+rfc = 7518
+section = "6.2.2"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+aliases = ["RFC7518-6-private"]
+source = "RFC 7518"
+line_start = 1607
+line_end = 1609
+
+[[clause]]
+id = "JOSE-8037-3.1-2"
+ref = "RFC 8037 section 3.1"
+title = "Ed448 signatures"
+rfc = 8037
+section = "3.1"
+force = "grammar"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+test_scope = "Ed448 subtype selects the Ed448 variant."
+aliases = ["RFC8037-3-Ed448", "JOSE-8037-3-1"]
+source = "RFC 8037"
+line_start = 194
+line_end = 195
+
+[[clause]]
+id = "JOSE-8037-A.6-1"
+ref = "RFC 8037 section A.6 and A.7"
+title = "X25519 and X448 key agreement"
+rfc = 8037
+section = "A.6"
+force = "grammar"
+side = "both"
+feature_area = "OKP"
+profile = "jwe"
+aliases = ["RFC8037-A.6-A.7"]
+source = "RFC 8037"
+line_start = 596
+line_end = 596
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-8725-3.5-1"
+ref = "RFC 8725 section 3.5"
+title = "Follow key entropy and password advice"
+rfc = 8725
+section = "3.5"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+aliases = ["RFC8725-3.5-3.6"]
+source = "RFC 8725"
+line_start = 370
+line_end = 372
+
+[[clause]]
+id = "JOSE-7515-A.1-1"
+ref = "RFC 7515 section A.1"
+title = "Official example A.1"
+rfc = 7515
+section = "A.1"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-A.1"]
+source = "RFC 7515"
+line_start = 2033
+line_end = 2035
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7515-A.2-1"
+ref = "RFC 7515 section A.2"
+title = "Official example A.2"
+rfc = 7515
+section = "A.2"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-A.2"]
+source = "RFC 7515"
+line_start = 2177
+line_end = 2178
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7515-A.3-1"
+ref = "RFC 7515 section A.3"
+title = "Official example A.3"
+rfc = 7515
+section = "A.3"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-A.3"]
+source = "RFC 7515"
+line_start = 2393
+line_end = 2394
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7515-A.4-1"
+ref = "RFC 7515 section A.4"
+title = "Official example A.4"
+rfc = 7515
+section = "A.4"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-A.4"]
+source = "RFC 7515"
+line_start = 2535
+line_end = 2536
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7515-A.5-1"
+ref = "RFC 7515 section A.5"
+title = "Official example A.5"
+rfc = 7515
+section = "A.5"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-A.5"]
+source = "RFC 7515"
+line_start = 2667
+line_end = 2668
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7515-A.6-1"
+ref = "RFC 7515 section A.6"
+title = "Official example A.6"
+rfc = 7515
+section = "A.6"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-A.6"]
+source = "RFC 7515"
+line_start = 2708
+line_end = 2709
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7515-A.7-1"
+ref = "RFC 7515 section A.7"
+title = "Official example A.7"
+rfc = 7515
+section = "A.7"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7515-A.7"]
+source = "RFC 7515"
+line_start = 2865
+line_end = 2866
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7520-4.1-1"
+ref = "RFC 7520 section 4.1"
+title = "Official example 4.1"
+rfc = 7520
+section = "4.1"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7520-4.1"]
+source = "RFC 7520"
+line_start = 637
+line_end = 638
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7520-4.2-1"
+ref = "RFC 7520 section 4.2"
+title = "Official example 4.2"
+rfc = 7520
+section = "4.2"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7520-4.2"]
+source = "RFC 7520"
+line_start = 814
+line_end = 815
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7520-4.3-1"
+ref = "RFC 7520 section 4.3"
+title = "Official example 4.3"
+rfc = 7520
+section = "4.3"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7520-4.3"]
+source = "RFC 7520"
+line_start = 1017
+line_end = 1019
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7520-4.4-1"
+ref = "RFC 7520 section 4.4"
+title = "Official example 4.4"
+rfc = 7520
+section = "4.4"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7520-4.4"]
+source = "RFC 7520"
+line_start = 1169
+line_end = 1170
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7520-4.5-1"
+ref = "RFC 7520 section 4.5"
+title = "Official example 4.5"
+rfc = 7520
+section = "4.5"
+force = "grammar"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+aliases = ["RFC7520-4.5"]
+source = "RFC 7520"
+line_start = 1332
+line_end = 1332
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7520-4.6-1"
+ref = "RFC 7520 section 4.6"
+title = "Official example 4.6"
+rfc = 7520
+section = "4.6"
+force = "grammar"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+aliases = ["RFC7520-4.6"]
+source = "RFC 7520"
+line_start = 1475
+line_end = 1476
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7520-4.7-1"
+ref = "RFC 7520 section 4.7"
+title = "Official example 4.7"
+rfc = 7520
+section = "4.7"
+force = "grammar"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+aliases = ["RFC7520-4.7"]
+source = "RFC 7520"
+line_start = 1616
+line_end = 1617
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7520-4.8-1"
+ref = "RFC 7520 section 4.8"
+title = "Official example 4.8"
+rfc = 7520
+section = "4.8"
+force = "grammar"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+aliases = ["RFC7520-4.8"]
+source = "RFC 7520"
+line_start = 1762
+line_end = 1763
+source_note = "Example row; informative, not an RFC requirement."
+
+[[clause]]
+id = "JOSE-7797-3-1"
+ref = "RFC 7797 section 3"
+title = "b64 header is a JSON boolean"
+rfc = 7797
+section = "3"
+force = "grammar"
+side = "both"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+source = "RFC 7797"
+line_start = 198
+line_end = 199
+
+[[clause]]
+id = "JOSE-7515-F-1"
+ref = "RFC 7515 Appendix F; RFC 7797 section 4.2"
+title = "Detached signing input uses original payload octets"
+rfc = 7515
+section = "F"
+force = "grammar"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 3236
+line_end = 3238
+
+[[clause]]
+id = "JOSE-7515-2-2"
+ref = "RFC 7515 section 2"
+title = "StringOrURI permits strings; a colon requires URI syntax"
+rfc = 7515
+section = "2"
+force = "MUST"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+test_scope = "A StringOrURI value with a colon MUST satisfy RFC 3986 URI syntax."
+source = "RFC 7515"
+line_start = 326
+line_end = 329
+
+[[clause]]
+id = "JOSE-7515-3-1"
+ref = "RFC 7515 section 3"
+title = "JWS JSON MAY use RFC 7159 spacing around values and syntax"
+rfc = 7515
+section = "3"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 353
+line_end = 356
+
+[[clause]]
+id = "JOSE-7515-3.2-1"
+ref = "RFC 7515 section 3.2"
+title = "JWS JSON MUST contain a protected or unprotected header, or both"
+rfc = 7515
+section = "3.2"
+force = "MUST"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+source = "RFC 7515"
+line_start = 401
+line_end = 402
+
+[[clause]]
+id = "JOSE-7515-4.1.2-2"
+ref = "RFC 7515 section 4.1.2"
+title = "Retrieved keys MUST use JWK Set encoding"
+rfc = 7515
+section = "4.1.2"
+force = "MUST"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 555
+line_end = 556
+
+[[clause]]
+id = "JOSE-7515-4.1.9-2"
+ref = "RFC 7515 section 4.1.9"
+title = "Producers SHOULD drop typ's application/ prefix when no other '/' is left"
+rfc = 7515
+section = "4.1.9"
+force = "SHOULD"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 679
+line_end = 682
+
+[[clause]]
+id = "JOSE-7515-4.1.9-3"
+ref = "RFC 7515 section 4.1.9"
+title = "Recipients interpreting slash-free typ as media type MUST prepend application/"
+rfc = 7515
+section = "4.1.9"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 682
+line_end = 684
+
+[[clause]]
+id = "JOSE-7515-4.1.10-2"
+ref = "RFC 7515 section 4.1.10"
+title = "Producers SHOULD drop cty's application/ prefix when no other '/' is left"
+rfc = 7515
+section = "4.1.10"
+force = "SHOULD"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 713
+line_end = 716
+
+[[clause]]
+id = "JOSE-7515-4.1.10-3"
+ref = "RFC 7515 section 4.1.10"
+title = "Recipients interpreting slash-free cty as media type MUST prepend application/"
+rfc = 7515
+section = "4.1.10"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 716
+line_end = 718
+
+[[clause]]
+id = "JOSE-7515-4.1.11-7"
+ref = "RFC 7515 section 4.1.11"
+title = "Recipients MAY reject crit misuse, including registered parameter names"
+rfc = 7515
+section = "4.1.11"
+force = "MAY"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 747
+line_end = 750
+
+[[clause]]
+id = "JOSE-7515-5.1-2"
+ref = "RFC 7515 section 5.1"
+title = "The JOSE header MUST include alg and correctly identify signature construction"
+rfc = 7515
+section = "5.1"
+force = "MUST"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 820
+line_end = 823
+
+[[clause]]
+id = "JOSE-7515-5.2-9"
+ref = "RFC 7515 section 5.2"
+title = "JWS JSON MUST NOT repeat a parameter across its combined header objects"
+rfc = 7515
+section = "5.2"
+force = "MUST NOT"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+source = "RFC 7515"
+line_start = 892
+line_end = 905
+
+[[clause]]
+id = "JOSE-7515-5.2-10"
+ref = "RFC 7515 section 5.2"
+title = "Applications SHOULD reject a valid JWS if its algorithms are unacceptable"
+rfc = 7515
+section = "5.2"
+force = "SHOULD"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 941
+line_end = 943
+
+[[clause]]
+id = "JOSE-7515-6-1"
+ref = "RFC 7515 section 6"
+title = "jku/jwk/kid/x5* MUST be integrity-protected when trust uses more than the key"
+rfc = 7515
+section = "6"
+force = "MUST"
+side = "application"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 997
+line_end = 1002
+
+[[clause]]
+id = "JOSE-7515-6-2"
+ref = "RFC 7515 section 6"
+title = "Producers SHOULD identify the key in headers unless another convention does so"
+rfc = 7515
+section = "6"
+force = "SHOULD"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 1004
+line_end = 1006
+
+[[clause]]
+id = "JOSE-7515-7.2.1-2"
+ref = "RFC 7515 section 7.2.1"
+title = "JWS JSON MUST include payload with the base64url-encoded payload bytes"
+rfc = 7515
+section = "7.2.1"
+force = "MUST"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+source = "RFC 7515"
+line_start = 1076
+line_end = 1078
+
+[[clause]]
+id = "JOSE-7515-7.2.1-4"
+ref = "RFC 7515 section 7.2.1"
+title = "protected MUST encode nonempty headers as base64url UTF-8; else be absent"
+rfc = 7515
+section = "7.2.1"
+force = "MUST"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+source = "RFC 7515"
+line_start = 1088
+line_end = 1091
+
+[[clause]]
+id = "JOSE-7515-7.2.1-5"
+ref = "RFC 7515 section 7.2.1"
+title = "header MUST contain a nonempty unprotected header, else be absent"
+rfc = 7515
+section = "7.2.1"
+force = "MUST"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+source = "RFC 7515"
+line_start = 1094
+line_end = 1097
+
+[[clause]]
+id = "JOSE-7515-7.2.1-6"
+ref = "RFC 7515 section 7.2.1"
+title = "JWS JSON MUST include signature with the base64url-encoded signature bytes"
+rfc = 7515
+section = "7.2.1"
+force = "MUST"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+source = "RFC 7515"
+line_start = 1101
+line_end = 1103
+
+[[clause]]
+id = "JOSE-7515-7.2.1-7"
+ref = "RFC 7515 section 7.2.1"
+title = "Each signature or MAC MUST have protected or header metadata conveying alg"
+rfc = 7515
+section = "7.2.1"
+force = "MUST"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+source = "RFC 7515"
+line_start = 1105
+line_end = 1107
+
+[[clause]]
+id = "JOSE-7515-7.2.1-8"
+ref = "RFC 7515 section 7.2.1"
+title = "Both JSON object forms permit extras; unknown members MUST be ignored"
+rfc = 7515
+section = "7.2.1"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS JSON"
+profile = "jws-json"
+source = "RFC 7515"
+line_start = 1109
+line_end = 1111
+
+[[clause]]
+id = "JOSE-7515-7.2.1-9"
+ref = "RFC 7515 section 7.2.1"
+title = "Protected and unprotected header names MUST form disjoint sets"
+rfc = 7515
+section = "7.2.1"
+force = "MUST"
+side = "both"
+feature_area = "JWS JSON"
+profile = "jws-json"
+source = "RFC 7515"
+line_start = 1128
+line_end = 1129
+
+[[clause]]
+id = "JOSE-7515-9.2.1-1"
+ref = "RFC 7515 section 9.2.1"
+title = "The 8bit application/jose+json object SHOULD use UTF-8"
+rfc = 7515
+section = "9.2.1"
+force = "SHOULD"
+side = "both"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 1467
+line_end = 1469
+
+[[clause]]
+id = "JOSE-7515-10.6-1"
+ref = "RFC 7515 section 10.6"
+title = "Signature-carried algorithm information MUST match alg during validation"
+rfc = 7515
+section = "10.6"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 1591
+line_end = 1594
+
+[[clause]]
+id = "JOSE-7515-10.13-1"
+ref = "RFC 7515 section 10.13"
+title = "Non-BMP characters SHOULD be preserved and compared correctly"
+rfc = 7515
+section = "10.13"
+force = "SHOULD"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+test_scope = "Non-BMP text SHOULD retain its characters and compare accurately."
+source = "RFC 7515"
+line_start = 1745
+line_end = 1750
+
+[[clause]]
+id = "JOSE-7517-4-2"
+ref = "RFC 7517 section 4"
+title = "JWK JSON MAY use RFC 7159 spacing around values and syntax"
+rfc = 7517
+section = "4"
+force = "MAY"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 252
+line_end = 254
+
+[[clause]]
+id = "JOSE-7517-4.3-2"
+ref = "RFC 7517 section 4.3"
+title = "A key SHOULD NOT declare unrelated operations"
+rfc = 7517
+section = "4.3"
+force = "SHOULD NOT"
+side = "key-author"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 371
+line_end = 373
+
+[[clause]]
+id = "JOSE-7517-4.3-3"
+ref = "RFC 7517 section 4.3"
+title = "Keys SHOULD NOT mix ops except sign/verify, encrypt/decrypt, wrapKey/unwrapKey"
+rfc = 7517
+section = "4.3"
+force = "SHOULD NOT"
+side = "key-author"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 373
+line_end = 375
+
+[[clause]]
+id = "JOSE-7517-4.3-4"
+ref = "RFC 7517 section 4.3"
+title = "use and key_ops SHOULD NOT coexist; when both occur, they MUST agree"
+rfc = 7517
+section = "4.3"
+force = "SHOULD NOT"
+side = "key-author"
+feature_area = "JWK"
+profile = "jwk"
+test_scope = "A JWK SHOULD NOT contain both use and key_ops."
+source = "RFC 7517"
+line_start = 382
+line_end = 384
+
+[[clause]]
+id = "JOSE-7517-4.5-2"
+ref = "RFC 7517 section 4.5"
+title = "Different keys in a JWK Set SHOULD have different kid values"
+rfc = 7517
+section = "4.5"
+force = "SHOULD"
+side = "key-author"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 413
+line_end = 414
+
+[[clause]]
+id = "JOSE-7517-4.6-2"
+ref = "RFC 7517 section 4.6"
+title = "Other JWK members MUST agree with corresponding first-certificate fields"
+rfc = 7517
+section = "4.6"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 440
+line_end = 443
+
+[[clause]]
+id = "JOSE-7517-4.6-3"
+ref = "RFC 7517 section 4.6"
+title = "A present use value MUST match certificate usage information when supplied"
+rfc = 7517
+section = "4.6"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 443
+line_end = 455
+
+[[clause]]
+id = "JOSE-7517-4.6-4"
+ref = "RFC 7517 section 4.6"
+title = "A present alg value MUST match the certificate algorithm"
+rfc = 7517
+section = "4.6"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 455
+line_end = 457
+
+[[clause]]
+id = "JOSE-7517-4.7-2"
+ref = "RFC 7517 section 4.7"
+title = "Other JWK members MUST agree with corresponding first-certificate fields"
+rfc = 7517
+section = "4.7"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 475
+line_end = 477
+
+[[clause]]
+id = "JOSE-7517-4.8-2"
+ref = "RFC 7517 section 4.8"
+title = "Other JWK members MUST agree with corresponding referenced-certificate fields"
+rfc = 7517
+section = "4.8"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 491
+line_end = 493
+
+[[clause]]
+id = "JOSE-7517-4.9-2"
+ref = "RFC 7517 section 4.9"
+title = "Other JWK members MUST agree with corresponding referenced-certificate fields"
+rfc = 7517
+section = "4.9"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 522
+line_end = 524
+
+[[clause]]
+id = "JOSE-7517-8.5.1-1"
+ref = "RFC 7517 section 8.5.1"
+title = "The 8bit application/jwk+json object SHOULD use UTF-8"
+rfc = 7517
+section = "8.5.1"
+force = "SHOULD"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 994
+line_end = 996
+
+[[clause]]
+id = "JOSE-7517-8.5.1-2"
+ref = "RFC 7517 section 8.5.1"
+title = "The 8bit application/jwk-set+json object SHOULD use UTF-8"
+rfc = 7517
+section = "8.5.1"
+force = "SHOULD"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 1033
+line_end = 1035
+
+[[clause]]
+id = "JOSE-7518-3.2-3"
+ref = "RFC 7518 section 3.2"
+title = "Computed MAC and JWS signature MUST be compared in constant time"
+rfc = 7518
+section = "3.2"
+force = "MUST"
+side = "consumer"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+source = "RFC 7518"
+line_start = 379
+line_end = 381
+
+[[clause]]
+id = "JOSE-7518-3.6-2"
+ref = "RFC 7518 section 3.6"
+title = "Unsecured JWS MUST NOT be accepted without per-object application permission"
+rfc = 7518
+section = "3.6"
+force = "MUST NOT"
+side = "consumer"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+source = "RFC 7518"
+line_start = 602
+line_end = 604
+
+[[clause]]
+id = "JOSE-7518-3.6-3"
+ref = "RFC 7518 section 3.6"
+title = "Default policy MUST NOT accept unsecured JWS objects"
+rfc = 7518
+section = "3.6"
+force = "MUST NOT"
+side = "consumer"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+source = "RFC 7518"
+line_start = 605
+line_end = 605
+
+[[clause]]
+id = "JOSE-7518-3.6-4"
+ref = "RFC 7518 section 3.6"
+title = "Unsecured JWS permission MUST NOT be global and SHOULD be per object"
+rfc = 7518
+section = "3.6"
+force = "MUST NOT"
+side = "application"
+feature_area = "JWA alg"
+profile = "jwa-alg"
+test_scope = "Applications MUST NOT grant global permission for unsecured JWS objects."
+source = "RFC 7518"
+line_start = 605
+line_end = 608
+
+[[clause]]
+id = "JOSE-7518-6.3.2-1"
+ref = "RFC 7518 section 6.3.2"
+title = "RSA private JWKs MUST include d"
+rfc = 7518
+section = "6.3.2"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7518"
+line_start = 1665
+line_end = 1666
+
+[[clause]]
+id = "JOSE-7518-6.3.2-2"
+ref = "RFC 7518 section 6.3.2"
+title = "RSA private JWK producers SHOULD include the optimization parameters"
+rfc = 7518
+section = "6.3.2"
+force = "SHOULD"
+side = "producer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7518"
+line_start = 1666
+line_end = 1668
+
+[[clause]]
+id = "JOSE-7518-6.3.2-3"
+ref = "RFC 7518 section 6.3.2"
+title = "Any of p/q/dp/dq/qi/oth present: all but oth MUST be; oth only if >2 primes"
+rfc = 7518
+section = "6.3.2"
+force = "MUST"
+side = "key-author"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7518"
+line_start = 1668
+line_end = 1671
+
+[[clause]]
+id = "JOSE-7518-6.3.2.7-1"
+ref = "RFC 7518 section 6.3.2.7"
+title = "Two-prime RSA private JWKs MUST omit oth"
+rfc = 7518
+section = "6.3.2.7"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7518"
+line_start = 1719
+line_end = 1720
+
+[[clause]]
+id = "JOSE-7518-6.3.2.7-2"
+ref = "RFC 7518 section 6.3.2.7"
+title = "For multiprime RSA, oth length MUST equal prime count minus two"
+rfc = 7518
+section = "6.3.2.7"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7518"
+line_start = 1720
+line_end = 1721
+
+[[clause]]
+id = "JOSE-7518-6.3.2.7-3"
+ref = "RFC 7518 section 6.3.2.7"
+title = "Consumers without multi-prime RSA support MUST NOT use keys containing oth"
+rfc = 7518
+section = "6.3.2.7"
+force = "MUST NOT"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7518"
+line_start = 1724
+line_end = 1727
+
+[[clause]]
+id = "JOSE-7518-6.3.2.7-4"
+ref = "RFC 7518 section 6.3.2.7"
+title = "Every oth entry MUST be an object containing the specified prime parameters"
+rfc = 7518
+section = "6.3.2.7"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7518"
+line_start = 1727
+line_end = 1728
+
+[[clause]]
+id = "JOSE-7518-6.4-2"
+ref = "RFC 7518 section 6.4"
+title = "Symmetric JWKs SHOULD name alg unless another convention selects the algorithm"
+rfc = 7518
+section = "6.4"
+force = "SHOULD"
+side = "key-author"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7518"
+line_start = 1759
+line_end = 1762
+
+[[clause]]
+id = "JOSE-7519-2-2"
+ref = "RFC 7519 section 2"
+title = "StringOrURI permits strings; a colon requires URI syntax"
+rfc = 7519
+section = "2"
+force = "MUST"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+test_scope = "A StringOrURI value with a colon MUST satisfy RFC 3986 URI syntax."
+source = "RFC 7519"
+line_start = 273
+line_end = 276
+
+[[clause]]
+id = "JOSE-7519-3-1"
+ref = "RFC 7519 section 3"
+title = "JWT JSON MAY use RFC 7159 spacing around values and syntax"
+rfc = 7519
+section = "3"
+force = "MAY"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 304
+line_end = 307
+
+[[clause]]
+id = "JOSE-7519-4.1.2-2"
+ref = "RFC 7519 section 4.1.2"
+title = "sub MUST be unique globally or within its issuer's context"
+rfc = 7519
+section = "4.1.2"
+force = "MUST"
+side = "producer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 477
+line_end = 478
+
+[[clause]]
+id = "JOSE-7519-4.1.7-2"
+ref = "RFC 7519 section 4.1.7"
+title = "jti assignment MUST make accidental collisions negligible, also across issuers"
+rfc = 7519
+section = "4.1.7"
+force = "MUST"
+side = "producer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 535
+line_end = 539
+
+[[clause]]
+id = "JOSE-7519-4.3-1"
+ref = "RFC 7519 section 4.3"
+title = "JWT parties MAY agree on names that are neither registered nor public"
+rfc = 7519
+section = "4.3"
+force = "MAY"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 556
+line_end = 558
+
+[[clause]]
+id = "JOSE-7519-7.1-1"
+ref = "RFC 7519 section 7.1"
+title = "A JWT MUST satisfy the applicable JWS or JWE specification"
+rfc = 7519
+section = "7.1"
+force = "MUST"
+side = "producer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 720
+line_end = 721
+
+[[clause]]
+id = "JOSE-7519-7.1-2"
+ref = "RFC 7519 section 7.1"
+title = "JWS-based JWTs MUST apply every JWS creation step using the message payload"
+rfc = 7519
+section = "7.1"
+force = "MUST"
+side = "producer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 738
+line_end = 740
+
+[[clause]]
+id = "JOSE-7519-7.2-3"
+ref = "RFC 7519 section 7.2"
+title = "Applications SHOULD reject valid JWTs whose algorithms they do not accept"
+rfc = 7519
+section = "7.2"
+force = "SHOULD"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 816
+line_end = 818
+
+[[clause]]
+id = "JOSE-7519-8-1"
+ref = "RFC 7519 section 8"
+title = "Conforming JWT implementations MUST support HS256 and none"
+rfc = 7519
+section = "8"
+force = "MUST"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 869
+line_end = 871
+
+[[clause]]
+id = "JOSE-7519-8-2"
+ref = "RFC 7519 section 8"
+title = "JWT implementations SHOULD also support RS256 and ES256"
+rfc = 7519
+section = "8"
+force = "SHOULD"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 871
+line_end = 874
+
+[[clause]]
+id = "JOSE-7519-8-3"
+ref = "RFC 7519 section 8"
+title = "JWT support for additional algorithms and key lengths is optional"
+rfc = 7519
+section = "8"
+force = "MAY"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 874
+line_end = 875
+
+[[clause]]
+id = "JOSE-7519-8-4"
+ref = "RFC 7519 section 8"
+title = "Nested JWT support is optional"
+rfc = 7519
+section = "8"
+force = "MAY"
+side = "both"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 891
+line_end = 891
+
+[[clause]]
+id = "JOSE-7638-3.3-2"
+ref = "RFC 7638 section 3.3"
+title = "Thumbprint JSON MUST emit member names and values without character escapes"
+rfc = 7638
+section = "3.3"
+force = "MUST"
+side = "producer"
+feature_area = "thumbprint"
+profile = "thumbprint"
+source = "RFC 7638"
+line_start = 372
+line_end = 373
+
+[[clause]]
+id = "JOSE-7638-3.3-3"
+ref = "RFC 7638 section 3.3"
+title = "Nested object members in thumbprint input MUST also sort lexicographically"
+rfc = 7638
+section = "3.3"
+force = "MUST"
+side = "producer"
+feature_area = "thumbprint"
+profile = "thumbprint"
+source = "RFC 7638"
+line_start = 382
+line_end = 384
+
+[[clause]]
+id = "JOSE-7638-3.3-4"
+ref = "RFC 7638 section 3.3"
+title = "Thumbprint integers MUST use RFC7159 numbers without fractions or exponents"
+rfc = 7638
+section = "3.3"
+force = "MUST"
+side = "producer"
+feature_area = "thumbprint"
+profile = "thumbprint"
+source = "RFC 7638"
+line_start = 387
+line_end = 390
+
+[[clause]]
+id = "JOSE-7797-3-2"
+ref = "RFC 7797 section 3"
+title = "When present, b64 MUST stay inside the integrity-protected header"
+rfc = 7797
+section = "3"
+force = "MUST"
+side = "both"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+source = "RFC 7797"
+line_start = 199
+line_end = 201
+
+[[clause]]
+id = "JOSE-7797-3-3"
+ref = "RFC 7797 section 3"
+title = "All signatures and MACs in one JWS MUST agree on b64"
+rfc = 7797
+section = "3"
+force = "MUST"
+side = "both"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+source = "RFC 7797"
+line_start = 201
+line_end = 203
+
+[[clause]]
+id = "JOSE-7797-5.1-1"
+ref = "RFC 7797 section 5.1"
+title = "Content-encoding apps MUST state whether signatures/MACs cover raw/encoded bytes"
+rfc = 7797
+section = "5.1"
+force = "MUST"
+side = "application"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+source = "RFC 7797"
+line_start = 405
+line_end = 408
+
+[[clause]]
+id = "JOSE-7797-5.2-1"
+ref = "RFC 7797 section 5.2"
+title = "Compact JWS MUST NOT carry an attached unencoded payload containing periods"
+rfc = 7797
+section = "5.2"
+force = "MUST NOT"
+side = "producer"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+source = "RFC 7797"
+line_start = 412
+line_end = 414
+
+[[clause]]
+id = "JOSE-7797-5.2-2"
+ref = "RFC 7797 section 5.2"
+title = "URL-safe attached compact payloads MUST use ASCII alphanumerics or -_~"
+rfc = 7797
+section = "5.2"
+force = "MUST"
+side = "application"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+source = "RFC 7797"
+line_start = 415
+line_end = 419
+
+[[clause]]
+id = "JOSE-7797-5.2-3"
+ref = "RFC 7797 section 5.2"
+title = "Raw attached compact payload MAY use %x20-7E but '.', if JWS can pass intact"
+rfc = 7797
+section = "5.2"
+force = "MAY"
+side = "both"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+source = "RFC 7797"
+line_start = 421
+line_end = 425
+
+[[clause]]
+id = "JOSE-7797-5.3-1"
+ref = "RFC 7797 section 5.3"
+title = "Payload representation MUST NOT use unassigned Unicode points"
+rfc = 7797
+section = "5.3"
+force = "MUST NOT"
+side = "producer"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+source = "RFC 7797"
+line_start = 443
+line_end = 444
+
+[[clause]]
+id = "JOSE-7797-7-2"
+ref = "RFC 7797 section 7"
+title = "Changing b64 between payloads in one application context is discouraged"
+rfc = 7797
+section = "7"
+force = "SHOULD NOT"
+side = "application"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+source = "RFC 7797"
+line_start = 468
+line_end = 470
+
+[[clause]]
+id = "JOSE-7797-7-3"
+ref = "RFC 7797 section 7"
+title = "Applications SHOULD omit b64 when its value would be true"
+rfc = 7797
+section = "7"
+force = "SHOULD"
+side = "application"
+feature_area = "unencoded payload"
+profile = "unencoded-payload"
+source = "RFC 7797"
+line_start = 472
+line_end = 474
+
+[[clause]]
+id = "JOSE-8037-2-2"
+ref = "RFC 8037 section 2"
+title = "Private OKP keys MUST include d with base64url-encoded private key bytes"
+rfc = 8037
+section = "2"
+force = "MUST"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+source = "RFC 8037"
+line_start = 148
+line_end = 149
+
+[[clause]]
+id = "JOSE-8037-2-3"
+ref = "RFC 8037 section 2"
+title = "Public OKP keys MUST omit d"
+rfc = 8037
+section = "2"
+force = "MUST NOT"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+source = "RFC 8037"
+line_start = 149
+line_end = 150
+
+[[clause]]
+id = "JOSE-8037-3.2-1"
+ref = "RFC 8037 section 3.2"
+title = "X25519 and X448 key subtypes MUST NOT sign"
+rfc = 8037
+section = "3.2"
+force = "MUST NOT"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+source = "RFC 8037"
+line_start = 231
+line_end = 232
+
+[[clause]]
+id = "JOSE-8037-4-1"
+ref = "RFC 8037 section 4"
+title = "Key creation and batch checks MUST use well-seeded cryptographic randomness"
+rfc = 8037
+section = "4"
+force = "MUST"
+side = "both"
+feature_area = "OKP"
+profile = "okp"
+source = "RFC 8037"
+line_start = 271
+line_end = 272
+
+[[clause]]
+id = "JOSE-8725-2.8-1"
+ref = "RFC 8725 section 2.8"
+title = "Possible confusion between JWT kinds MUST trigger substitution defenses"
+rfc = 8725
+section = "2.8"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 263
+line_end = 265
+
+[[clause]]
+id = "JOSE-8725-3.2-2"
+ref = "RFC 8725 section 3.2"
+title = "Applications SHOULD reject a valid JWS if its algorithms are unacceptable"
+rfc = 8725
+section = "3.2"
+force = "SHOULD"
+side = "consumer"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 298
+line_end = 301
+
+[[clause]]
+id = "JOSE-8725-3.2-3"
+ref = "RFC 8725 section 3.2"
+title = "Applications MUST permit only current algorithms meeting their security needs"
+rfc = 8725
+section = "3.2"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 303
+line_end = 305
+
+[[clause]]
+id = "JOSE-8725-3.2-4"
+ref = "RFC 8725 section 3.2"
+title = "Application design MUST support changes of cryptographic algorithms"
+rfc = 8725
+section = "3.2"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 307
+line_end = 308
+
+[[clause]]
+id = "JOSE-8725-3.2-5"
+ref = "RFC 8725 section 3.2"
+title = "JWT ECDSA implementations SHOULD use the RFC 6979 deterministic method"
+rfc = 8725
+section = "3.2"
+force = "SHOULD"
+side = "both"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 334
+line_end = 336
+
+[[clause]]
+id = "JOSE-8725-3.3-2"
+ref = "RFC 8725 section 3.3"
+title = "Nested JWT layers MUST validate with application-chosen keys and algorithms"
+rfc = 8725
+section = "3.3"
+force = "MUST"
+side = "both"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 344
+line_end = 347
+
+[[clause]]
+id = "JOSE-8725-3.5-2"
+ref = "RFC 8725 section 3.5"
+title = "Applications MUST NOT key MACs directly with passwords people can memorize"
+rfc = 8725
+section = "3.5"
+force = "MUST NOT"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 372
+line_end = 373
+
+[[clause]]
+id = "JOSE-8725-3.8-3"
+ref = "RFC 8725 section 3.8"
+title = "A mismatch between issuer identity and signing keys MUST cause JWT rejection"
+rfc = 8725
+section = "3.8"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 396
+line_end = 397
+
+[[clause]]
+id = "JOSE-8725-3.8-4"
+ref = "RFC 8725 section 3.8"
+title = "When sub exists, applications MUST validate subject or issuer-subject pairing"
+rfc = 8725
+section = "3.8"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 407
+line_end = 409
+
+[[clause]]
+id = "JOSE-8725-3.8-5"
+ref = "RFC 8725 section 3.8"
+title = "Invalid issuers, subjects or issuer-subject pairings MUST cause JWT rejection"
+rfc = 8725
+section = "3.8"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 411
+line_end = 412
+
+[[clause]]
+id = "JOSE-8725-3.11-1"
+ref = "RFC 8725 section 3.11"
+title = "typ SHOULD omit its application/ prefix as RFC 7515 specifies"
+rfc = 8725
+section = "3.11"
+force = "SHOULD"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 451
+line_end = 453
+
+[[clause]]
+id = "JOSE-8725-3.11-2"
+ref = "RFC 8725 section 3.11"
+title = "Explicit JWT typing SHOULD use application/<kind>+jwt media names"
+rfc = 8725
+section = "3.11"
+force = "SHOULD"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 454
+line_end = 457
+
+[[clause]]
+id = "JOSE-8725-3.11-3"
+ref = "RFC 8725 section 3.11"
+title = "Nested JWT explicit typing MUST place typ in the inner claims-bearing JWT"
+rfc = 8725
+section = "3.11"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 459
+line_end = 462
+
+[[clause]]
+id = "JOSE-8725-3.11-4"
+ref = "RFC 8725 section 3.11"
+title = "New JWT applications SHOULD use explicit typing"
+rfc = 8725
+section = "3.11"
+force = "SHOULD"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 469
+line_end = 469
+
+[[clause]]
+id = "JOSE-8725-3.12-1"
+ref = "RFC 8725 section 3.12"
+title = "One issuer's JWT kinds MUST have disjoint validation rules rejecting wrong kinds"
+rfc = 8725
+section = "3.12"
+force = "MUST"
+side = "application"
+feature_area = "BCP"
+profile = "bcp"
+aliases = ["RFC8725-3.10-3.12", "JOSE-8725-3.10-1"]
+source = "RFC 8725"
+line_start = 476
+line_end = 478
+
+[[clause]]
+id = "JOSE-7515-4.1.9-4"
+ref = "RFC 7515 section 4.1.9"
+title = "Optional typ header presence is accepted"
+rfc = 7515
+section = "4.1.9"
+force = "MAY"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 666
+line_end = 666
+
+[[clause]]
+id = "JOSE-7515-4.1.10-4"
+ref = "RFC 7515 section 4.1.10"
+title = "Optional cty header presence is accepted"
+rfc = 7515
+section = "4.1.10"
+force = "MAY"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 706
+line_end = 707
+
+[[clause]]
+id = "JOSE-7515-4-2"
+ref = "RFC 7515 section 4"
+title = "Unknown nonmandatory parameters defined by JWS MUST be ignored"
+rfc = 7515
+section = "4"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 502
+line_end = 512
+
+[[clause]]
+id = "JOSE-7515-4-3"
+ref = "RFC 7515 section 4"
+title = "Unknown extension parameters outside crit MUST be ignored"
+rfc = 7515
+section = "4"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 512
+line_end = 514
+
+[[clause]]
+id = "JOSE-7515-4.1.4-2"
+ref = "RFC 7515 section 4.1.4"
+title = "Including kid is optional"
+rfc = 7515
+section = "4.1.4"
+force = "MAY"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 585
+line_end = 585
+
+[[clause]]
+id = "JOSE-7515-4.1.5-2"
+ref = "RFC 7515 section 4.1.5"
+title = "A certificate chain MAY continue with each next certificate certifying its prior"
+rfc = 7515
+section = "4.1.5"
+force = "MAY"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 600
+line_end = 602
+
+[[clause]]
+id = "JOSE-7515-4.1.5-3"
+ref = "RFC 7515 section 4.1.5"
+title = "Including x5u is optional"
+rfc = 7515
+section = "4.1.5"
+force = "MAY"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 606
+line_end = 607
+
+[[clause]]
+id = "JOSE-7515-4.1.6-2"
+ref = "RFC 7515 section 4.1.6"
+title = "A certificate chain MAY continue with each next certificate certifying its prior"
+rfc = 7515
+section = "4.1.6"
+force = "MAY"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 627
+line_end = 629
+
+[[clause]]
+id = "JOSE-7515-4.1.6-3"
+ref = "RFC 7515 section 4.1.6"
+title = "Recipients MUST apply RFC 5280 chain validation and reject any failure"
+rfc = 7515
+section = "4.1.6"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 629
+line_end = 632
+
+[[clause]]
+id = "JOSE-7515-4.1.6-4"
+ref = "RFC 7515 section 4.1.6"
+title = "Including x5c is optional"
+rfc = 7515
+section = "4.1.6"
+force = "MAY"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 632
+line_end = 632
+
+[[clause]]
+id = "JOSE-7515-4.1.11-8"
+ref = "RFC 7515 section 4.1.11"
+title = "Including crit is optional"
+rfc = 7515
+section = "4.1.11"
+force = "MAY"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 752
+line_end = 752
+
+[[clause]]
+id = "JOSE-7517-4.3-5"
+ref = "RFC 7517 section 4.3"
+title = "Additional key_ops values are permitted"
+rfc = 7517
+section = "4.3"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 366
+line_end = 366
+
+[[clause]]
+id = "JOSE-7517-4.3-6"
+ref = "RFC 7517 section 4.3"
+title = "key_ops is optional unless the application makes it mandatory"
+rfc = 7517
+section = "4.3"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 368
+line_end = 369
+
+[[clause]]
+id = "JOSE-7517-4.6-5"
+ref = "RFC 7517 section 4.6"
+title = "Including the JWK x5u member is optional"
+rfc = 7517
+section = "4.6"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 434
+line_end = 435
+
+[[clause]]
+id = "JOSE-7517-4.7-3"
+ref = "RFC 7517 section 4.7"
+title = "A certificate chain MAY continue with each next certificate certifying its prior"
+rfc = 7517
+section = "4.7"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 467
+line_end = 469
+
+[[clause]]
+id = "JOSE-7517-4.7-4"
+ref = "RFC 7517 section 4.7"
+title = "Including the JWK x5c member is optional"
+rfc = 7517
+section = "4.7"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 470
+line_end = 471
+
+[[clause]]
+id = "JOSE-7517-4.8-3"
+ref = "RFC 7517 section 4.8"
+title = "Including the JWK x5t member is optional"
+rfc = 7517
+section = "4.8"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 487
+line_end = 487
+
+[[clause]]
+id = "JOSE-7517-4.9-3"
+ref = "RFC 7517 section 4.9"
+title = "Including the JWK x5t#S256 member is optional"
+rfc = 7517
+section = "4.9"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 518
+line_end = 518
+
+[[clause]]
+id = "JOSE-7517-5-3"
+ref = "RFC 7517 section 5"
+title = "A JWK Set object MAY include JSON spacing and newlines"
+rfc = 7517
+section = "5"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 531
+line_end = 531
+
+[[clause]]
+id = "JOSE-7517-5-4"
+ref = "RFC 7517 section 5"
+title = "JWK Set names MUST be unique; duplicates require rejection or last-value parsing"
+rfc = 7517
+section = "5"
+force = "MUST"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 533
+line_end = 537
+
+[[clause]]
+id = "JOSE-7517-5-5"
+ref = "RFC 7517 section 5"
+title = "JWK Sets permit extra members; unknown members MUST be ignored"
+rfc = 7517
+section = "5"
+force = "MUST"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 539
+line_end = 540
+
+[[clause]]
+id = "JOSE-7519-4.1.4-4"
+ref = "RFC 7519 section 4.1.4"
+title = "Including the exp claim is optional"
+rfc = 7519
+section = "4.1.4"
+force = "MAY"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 513
+line_end = 513
+
+[[clause]]
+id = "JOSE-7519-4.1.5-4"
+ref = "RFC 7519 section 4.1.5"
+title = "Including the nbf claim is optional"
+rfc = 7519
+section = "4.1.5"
+force = "MAY"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 523
+line_end = 523
+
+[[clause]]
+id = "JOSE-7519-4.1.6-2"
+ref = "RFC 7519 section 4.1.6"
+title = "Including the iat claim is optional"
+rfc = 7519
+section = "4.1.6"
+force = "MAY"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 529
+line_end = 530
+
+[[clause]]
+id = "JOSE-7519-5.1-2"
+ref = "RFC 7519 section 5.1"
+title = "Including typ is optional"
+rfc = 7519
+section = "5.1"
+force = "MAY"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 597
+line_end = 597
+
+[[clause]]
+id = "JOSE-7519-5.2-2"
+ref = "RFC 7519 section 5.2"
+title = "Without nested signing or encryption, cty use is discouraged"
+rfc = 7519
+section = "5.2"
+force = "SHOULD NOT"
+side = "producer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 605
+line_end = 607
+
+[[clause]]
+id = "JOSE-7519-5.2-3"
+ref = "RFC 7519 section 5.2"
+title = "Producers SHOULD spell the media type JWT in capitals for compatibility"
+rfc = 7519
+section = "5.2"
+force = "SHOULD"
+side = "producer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 610
+line_end = 612
+
+[[clause]]
+id = "JOSE-7518-3.6-5"
+ref = "RFC 7518 section 3.6"
+title = "Creating JWS objects without integrity protection is permitted"
+rfc = 7518
+section = "3.6"
+force = "MAY"
+side = "producer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7518"
+line_start = 595
+line_end = 595
+
+[[clause]]
+id = "JOSE-7518-3.6-6"
+ref = "RFC 7518 section 3.6"
+title = "Recipients MUST check that an unsecured JWS has zero signature bytes"
+rfc = 7518
+section = "3.6"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7518"
+line_start = 599
+line_end = 600
+
+[[clause]]
+id = "JOSE-7519-6-1"
+ref = "RFC 7519 section 6"
+title = "JWT may be unsecured when externally protected"
+rfc = 7519
+section = "6"
+force = "MAY"
+side = "producer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 649
+line_end = 652
+
+[[clause]]
+id = "JOSE-7515-2-3"
+ref = "RFC 7515 section 2"
+title = "StringOrURI permits freely chosen string values"
+rfc = 7515
+section = "2"
+force = "MAY"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 326
+line_end = 329
+
+[[clause]]
+id = "JOSE-7519-2-3"
+ref = "RFC 7519 section 2"
+title = "StringOrURI permits freely chosen string values"
+rfc = 7519
+section = "2"
+force = "MAY"
+side = "consumer"
+feature_area = "JWT claims"
+profile = "jwt-claims"
+source = "RFC 7519"
+line_start = 273
+line_end = 276
+
+[[clause]]
+id = "JOSE-7515-10.13-2"
+ref = "RFC 7515 section 10.13"
+title = "Unsupported non-BMP input MUST cause rejection"
+rfc = 7515
+section = "10.13"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7515"
+line_start = 1745
+line_end = 1750
+
+[[clause]]
+id = "JOSE-7517-4.3-7"
+ref = "RFC 7517 section 4.3"
+title = "When use and key_ops coexist, their meanings MUST agree"
+rfc = 7517
+section = "4.3"
+force = "MUST"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+source = "RFC 7517"
+line_start = 382
+line_end = 384
+
+[[clause]]
+id = "JOSE-7518-3.6-7"
+ref = "RFC 7518 section 3.6"
+title = "Applications SHOULD authorize unsecured JWS acceptance individually"
+rfc = 7518
+section = "3.6"
+force = "SHOULD"
+side = "application"
+feature_area = "JWS compact"
+profile = "core-jws-compact"
+source = "RFC 7518"
+line_start = 605
+line_end = 608
+
+[[clause]]
+id = "JOSE-8725-3.1-4"
+ref = "RFC 8725 section 3.1"
+title = "Cryptographic operations MUST NOT use algorithms outside the caller's selection"
+rfc = 8725
+section = "3.1"
+force = "MUST NOT"
+side = "consumer"
+feature_area = "BCP"
+profile = "bcp"
+source = "RFC 8725"
+line_start = 287
+line_end = 289
+
+[[clause]]
+id = "JOSE-7515-4.1.2-3"
+ref = "RFC 7515 section 4.1.2"
+title = "JWK retrieval MUST protect integrity; HTTP GET needs authenticated TLS"
+rfc = 7515
+section = "4.1.2"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "remote-key-retrieval"
+condition = "Applies when an implementation retrieves keys or certificates from a remote location, including a client that fetches a JWK Set. Header pass-through alone does not activate this condition."
+source = "RFC 7515"
+line_start = 556
+line_end = 568
+
+[[clause]]
+id = "JOSE-7515-4.1.5-4"
+ref = "RFC 7515 section 4.1.5"
+title = "Certificate retrieval MUST protect integrity; HTTP GET needs authenticated TLS"
+rfc = 7515
+section = "4.1.5"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "remote-key-retrieval"
+condition = "Applies when an implementation retrieves keys or certificates from a remote location, including a client that fetches a JWK Set. Header pass-through alone does not activate this condition."
+source = "RFC 7515"
+line_start = 602
+line_end = 605
+
+[[clause]]
+id = "JOSE-7515-8-3"
+ref = "RFC 7515 section 8"
+title = "TLS MUST use a ciphersuite protecting both confidentiality and integrity"
+rfc = 7515
+section = "8"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "remote-key-retrieval"
+condition = "Applies when an implementation retrieves keys or certificates from a remote location, including a client that fetches a JWK Set. Header pass-through alone does not activate this condition."
+source = "RFC 7515"
+line_start = 1205
+line_end = 1207
+
+[[clause]]
+id = "JOSE-7515-8-4"
+ref = "RFC 7515 section 8"
+title = "TLS use MUST include RFC 6125 section 6 certificate service-identity checks"
+rfc = 7515
+section = "8"
+force = "MUST"
+side = "consumer"
+feature_area = "JWS compact"
+profile = "remote-key-retrieval"
+condition = "Applies when an implementation retrieves keys or certificates from a remote location, including a client that fetches a JWK Set. Header pass-through alone does not activate this condition."
+source = "RFC 7515"
+line_start = 1215
+line_end = 1217
+
+[[clause]]
+id = "JOSE-8725-3.10-2"
+ref = "RFC 8725 section 3.10"
+title = "Applications SHOULD protect key-URL fetching against server-side request forgery"
+rfc = 8725
+section = "3.10"
+force = "SHOULD"
+side = "consumer"
+feature_area = "BCP"
+profile = "remote-key-retrieval"
+condition = "Applies when an implementation retrieves keys or certificates from a remote location, including a client that fetches a JWK Set. Header pass-through alone does not activate this condition."
+source = "RFC 8725"
+line_start = 435
+line_end = 438
+
+[[clause]]
+id = "JOSE-7517-4.7-5"
+ref = "RFC 7517 section 4.7"
+title = "Accept consistent optional metadata alongside certificate member"
+rfc = 7517
+section = "4.7"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+condition = "Tests acceptance of otherwise supported, consistent optional members; does not require certificate retrieval or trust processing."
+source = "RFC 7517"
+line_start = 473
+line_end = 475
+
+[[clause]]
+id = "JOSE-7517-4.8-4"
+ref = "RFC 7517 section 4.8"
+title = "Accept consistent optional metadata alongside certificate member"
+rfc = 7517
+section = "4.8"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+condition = "Tests acceptance of otherwise supported, consistent optional members; does not require certificate retrieval or trust processing."
+source = "RFC 7517"
+line_start = 489
+line_end = 491
+
+[[clause]]
+id = "JOSE-7517-4.9-4"
+ref = "RFC 7517 section 4.9"
+title = "Accept consistent optional metadata alongside certificate member"
+rfc = 7517
+section = "4.9"
+force = "MAY"
+side = "consumer"
+feature_area = "JWK"
+profile = "jwk"
+condition = "Tests acceptance of otherwise supported, consistent optional members; does not require certificate retrieval or trust processing."
+source = "RFC 7517"
+line_start = 520
+line_end = 522
+
+[[clause]]
+id = "JOSE-7518-3.1-1"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg HS256: Required"
+rfc = 7518
+section = "3.1"
+force = "MUST"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Required"
+table_parameter = "alg"
+table_value = "HS256"
+source = "RFC 7518"
+line_start = 302
+line_end = 302
+
+[[clause]]
+id = "JOSE-7518-3.1-2"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg HS384: Optional"
+rfc = 7518
+section = "3.1"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Optional"
+table_parameter = "alg"
+table_value = "HS384"
+source = "RFC 7518"
+line_start = 303
+line_end = 303
+
+[[clause]]
+id = "JOSE-7518-3.1-3"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg HS512: Optional"
+rfc = 7518
+section = "3.1"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Optional"
+table_parameter = "alg"
+table_value = "HS512"
+source = "RFC 7518"
+line_start = 304
+line_end = 304
+
+[[clause]]
+id = "JOSE-7518-3.1-4"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg RS256: Recommended"
+rfc = 7518
+section = "3.1"
+force = "SHOULD"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Recommended"
+table_parameter = "alg"
+table_value = "RS256"
+source = "RFC 7518"
+line_start = 305
+line_end = 306
+
+[[clause]]
+id = "JOSE-7518-3.1-5"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg RS384: Optional"
+rfc = 7518
+section = "3.1"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Optional"
+table_parameter = "alg"
+table_value = "RS384"
+source = "RFC 7518"
+line_start = 307
+line_end = 308
+
+[[clause]]
+id = "JOSE-7518-3.1-6"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg RS512: Optional"
+rfc = 7518
+section = "3.1"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Optional"
+table_parameter = "alg"
+table_value = "RS512"
+source = "RFC 7518"
+line_start = 309
+line_end = 310
+
+[[clause]]
+id = "JOSE-7518-3.1-7"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg ES256: Recommended+"
+rfc = 7518
+section = "3.1"
+force = "SHOULD"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Recommended+"
+table_parameter = "alg"
+table_value = "ES256"
+source = "RFC 7518"
+line_start = 311
+line_end = 311
+
+[[clause]]
+id = "JOSE-7518-3.1-8"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg ES384: Optional"
+rfc = 7518
+section = "3.1"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Optional"
+table_parameter = "alg"
+table_value = "ES384"
+source = "RFC 7518"
+line_start = 312
+line_end = 312
+
+[[clause]]
+id = "JOSE-7518-3.1-9"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg ES512: Optional"
+rfc = 7518
+section = "3.1"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Optional"
+table_parameter = "alg"
+table_value = "ES512"
+source = "RFC 7518"
+line_start = 313
+line_end = 313
+
+[[clause]]
+id = "JOSE-7518-3.1-10"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg PS256: Optional"
+rfc = 7518
+section = "3.1"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Optional"
+table_parameter = "alg"
+table_value = "PS256"
+source = "RFC 7518"
+line_start = 314
+line_end = 315
+
+[[clause]]
+id = "JOSE-7518-3.1-11"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg PS384: Optional"
+rfc = 7518
+section = "3.1"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Optional"
+table_parameter = "alg"
+table_value = "PS384"
+source = "RFC 7518"
+line_start = 316
+line_end = 317
+
+[[clause]]
+id = "JOSE-7518-3.1-12"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg PS512: Optional"
+rfc = 7518
+section = "3.1"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Optional"
+table_parameter = "alg"
+table_value = "PS512"
+source = "RFC 7518"
+line_start = 318
+line_end = 319
+
+[[clause]]
+id = "JOSE-7518-3.1-13"
+ref = "RFC 7518 section 3.1"
+title = "Implement alg none: Optional"
+rfc = 7518
+section = "3.1"
+force = "MAY"
+side = "both"
+feature_area = "JWS compact"
+profile = "jwa-alg"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Optional"
+table_parameter = "alg"
+table_value = "none"
+source = "RFC 7518"
+line_start = 320
+line_end = 321
+
+[[clause]]
+id = "JOSE-7518-6.1-1"
+ref = "RFC 7518 section 6.1"
+title = "Implement kty EC: Recommended+"
+rfc = 7518
+section = "6.1"
+force = "SHOULD"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Recommended+"
+table_parameter = "kty"
+table_value = "EC"
+source = "RFC 7518"
+line_start = 1528
+line_end = 1528
+
+[[clause]]
+id = "JOSE-7518-6.1-2"
+ref = "RFC 7518 section 6.1"
+title = "Implement kty RSA: Required"
+rfc = 7518
+section = "6.1"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Required"
+table_parameter = "kty"
+table_value = "RSA"
+source = "RFC 7518"
+line_start = 1529
+line_end = 1529
+
+[[clause]]
+id = "JOSE-7518-6.1-3"
+ref = "RFC 7518 section 6.1"
+title = "Implement kty oct: Required"
+rfc = 7518
+section = "6.1"
+force = "MUST"
+side = "both"
+feature_area = "JWK"
+profile = "jwk"
+condition = "Implementation support level from the RFC table; optional support does not require accepting every input."
+implementation_requirement = "Required"
+table_parameter = "kty"
+table_value = "oct"
+source = "RFC 7518"
+line_start = 1530
+line_end = 1531
+
+[[clause]]
+id = "JOSE-7517-4.6-6"
+ref = "RFC 7517 section 4.6"
+title = "TLS and server identity for x5u retrieval"
+rfc = 7517
+section = "4.6"
+force = "MUST"
+side = "consumer"
+feature_area = "JWK"
+profile = "remote-key-retrieval"
+condition = "Applies when an implementation retrieves the certificate resource identified by a JWK x5u parameter."
+source = "RFC 7517"
+line_start = 431
+line_end = 434
