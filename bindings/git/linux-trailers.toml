@@ -1,0 +1,198 @@
+# Mapping of row ids to git and email mechanisms for the Linux kernel process rows.
+# The rows themselves are in requirements/linux-process/commit.clauses.toml and pull.clauses.toml.
+# Core acceptance records do not use these terms. Evidence records and scripts do.
+
+[[map]]
+row = "KCA-SP-describe-4"
+mechanism = "commit message text"
+detail = "SHA-1 object id (12 or more hex characters) in the text 'commit <id>' with the quoted subject line"
+
+[[map]]
+row = "KCA-SP-describe-5"
+mechanism = "Link: trailer"
+detail = "value is an http(s) address"
+
+[[map]]
+row = "KCA-SP-describe-6"
+mechanism = "Closes: trailer"
+detail = "value is an http(s) address"
+
+[[map]]
+row = "KCA-SP-describe-7"
+mechanism = "Reported-by: trailer"
+detail = "followed by a Closes: or Link: trailer"
+
+[[map]]
+row = "KCA-SP-describe-8"
+mechanism = "Fixes: trailer"
+detail = "'Fixes: <12 or more hex> (\"<subject>\")' on one line"
+
+[[map]]
+row = "KCA-SP-describe-9"
+mechanism = "Fixes: trailer"
+detail = "the id resolves to one commit; its subject equals the quoted subject"
+
+[[map]]
+row = "KCA-SP-describe-10"
+mechanism = "Fixes: trailer"
+detail = "committer time of the named commit is not later than the committer time of the fix; ancestry is not tested"
+
+[[map]]
+row = "KCA-SP-describe-11"
+mechanism = "Fixes: trailer"
+detail = "presence, for a commit that fixes an earlier commit"
+
+[[map]]
+row = "KCA-PO-prep-1"
+mechanism = "commit series"
+detail = "a build at each commit; not reproduced"
+
+[[map]]
+row = "KCA-SP-recipients-1"
+mechanism = "email headers"
+detail = "To and Cc of the posted mail; not stored in the commit"
+
+[[map]]
+row = "KCA-SP-subject-1"
+mechanism = "first line of the commit message"
+detail = "'subsystem: summary'; a leading 'Revert \"' is skipped"
+
+[[map]]
+row = "KCA-SP-subject-2"
+mechanism = "first line of the commit message"
+detail = "the part after 'subsystem: '"
+
+[[map]]
+row = "KCA-SP-subject-3"
+mechanism = "first line of the commit message"
+detail = "length in characters"
+
+[[map]]
+row = "KCA-SP-subject-4"
+mechanism = "first line of the commit message"
+detail = "bracketed tags such as [PATCH]; the tags belong to the mail subject"
+
+[[map]]
+row = "KCA-SP-body-1"
+mechanism = "commit message body"
+detail = "line width; indented lines, address lines and trailers are skipped"
+
+[[map]]
+row = "KCA-SP-sign-1"
+mechanism = "Signed-off-by: trailer"
+detail = "at least one"
+
+[[map]]
+row = "KCA-SP-sign-2"
+mechanism = "author header and Signed-off-by: trailers"
+detail = "the author matches a signer by name or address"
+
+[[map]]
+row = "KCA-SP-sign-3"
+mechanism = "Signed-off-by: and Co-developed-by: trailers"
+detail = "the first signer is the author, or a Co-developed-by: line directly precedes it"
+
+[[map]]
+row = "KCA-SP-sign-4"
+mechanism = "committer header and Signed-off-by: trailers"
+detail = "when committer and author differ, the committer is a signer"
+
+[[map]]
+row = "KCA-SP-sign-5"
+mechanism = "Co-developed-by: trailer"
+detail = "directly followed by the Signed-off-by: of the same person"
+
+[[map]]
+row = "KCA-SP-tags-1"
+mechanism = "Acked-by:, Reviewed-by:, Tested-by: trailers"
+detail = "permission is given by email; not stored in the commit"
+
+[[map]]
+row = "KCA-SP-tags-2"
+mechanism = "Acked-by: trailer"
+detail = "the person is not an author, committer or signer"
+
+[[map]]
+row = "KCA-PO-tags-1"
+mechanism = "person trailers"
+detail = "'tag: Full Name <address>'"
+
+[[map]]
+row = "KCA-SK-cc-1"
+mechanism = "Cc: trailer"
+detail = "stable@vger.kernel.org or stable@kernel.org"
+
+[[map]]
+row = "KCA-HR-cc-1"
+mechanism = "Cc: trailer"
+detail = "presence, for a fix of a defect that shipped in an earlier release"
+
+[[map]]
+row = "KCA-CA-sign-1"
+mechanism = "Signed-off-by: trailer"
+detail = "the signer names an AI tool (fixed word list)"
+
+[[map]]
+row = "KCA-CA-attr-1"
+mechanism = "Assisted-by: trailer"
+detail = "presence; use of an assistant is not visible in history"
+
+[[map]]
+row = "KCA-CA-attr-2"
+mechanism = "Assisted-by: trailer"
+detail = "'Assisted-by: LLM [tool ...]' at v7.3"
+
+[[map]]
+row = "KPA-PR-tag-1"
+mechanism = "mergetag header of the merge commit"
+detail = "a signed tag object that is the second parent"
+
+[[map]]
+row = "KPA-RM-tag-1"
+mechanism = "mergetag header of the merge commit"
+detail = "signature check needs the signer key and keyring; not in history"
+
+[[map]]
+row = "KPA-PR-tag-3"
+mechanism = "message of the signed tag"
+detail = "first line, then a blank line"
+
+[[map]]
+row = "KPA-PR-tag-4"
+mechanism = "message of the signed tag"
+detail = "a Signed-off-by: line"
+
+[[map]]
+row = "KPA-PR-tag-5"
+mechanism = "message of the signed tag"
+detail = "content, reason and testing"
+
+[[map]]
+row = "KPA-RM-merge-1"
+mechanism = "message of the merge commit"
+detail = "non-empty body; word overlap with the tag message"
+
+[[map]]
+row = "KPA-RM-base-1"
+mechanism = "merge base of the two parents"
+detail = "compared with the tagged releases"
+
+[[map]]
+row = "KPA-RM-rebase-1"
+mechanism = "reflog of the requester's public repository"
+detail = "not in the integrator's history"
+
+[[map]]
+row = "KPA-RM-back-1"
+mechanism = "merge commits between the first and second parent"
+detail = "a parent already in the upstream history, not at a release tag"
+
+[[map]]
+row = "KPA-RM-back-2"
+mechanism = "merge commit message"
+detail = "reason for the merge"
+
+[[map]]
+row = "KPA-HR-fix-1"
+mechanism = "later Fixes: trailers and revert messages"
+detail = "observation only: counts of references naming a commit in the range of the merge"

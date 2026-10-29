@@ -1,0 +1,200 @@
+# Linux kernel acceptance of an integration request: a declared slice. Row titles paraphrase; no kernel text is copied.
+# Source documents are GPL-2.0 kernel files read at the release named in `edition`.
+# Each row is dated. A row applies to a request only if the rule was in force at the request date (see README).
+
+[standard]
+id = "linux-pull-acceptance"
+version = "1.0.0"
+provenance = "external"
+slice = true
+title = "Linux kernel rules for accepting an integration request"
+edition = "Linux v7.3 documents: maintainer/pull-requests.rst, maintainer/rebasing-and-merging.rst, process/handling-regressions.rst"
+numbering = "KPA-<doc>-<section>-<n>"
+slice_note = "A selection of the rules the mainline maintainer applies when accepting a request from a subsystem maintainer. Rows are mechanical, reading, or not decidable from history. One row has force observation: it records a fact and is not a requirement. Mail-only rules are not rows."
+
+
+[[clause]]
+id = "KPA-PR-tag-1"
+ref = "pull-requests.rst lines 44-45"
+title = "The request is based on a signed tag"
+doc = "PR"
+section = "tag"
+ordinal = 1
+force = "MUST"
+side = "requester"
+method = "mechanical"
+source = "Documentation/maintainer/pull-requests.rst"
+line_start = 44
+line_end = 45
+in_force_from = "2017-12-11"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: a signed tag. The merge commit records it in a mergetag header. A Merge tag subject alone is not read as proof."
+
+[[clause]]
+id = "KPA-RM-tag-1"
+ref = "rebasing-and-merging.rst lines 126-129"
+title = "The receiver verifies the signature of the request"
+doc = "RM"
+section = "tag"
+ordinal = 1
+force = "SHOULD"
+side = "integrator"
+method = "not-decidable-from-history"
+source = "Documentation/maintainer/rebasing-and-merging.rst"
+line_start = 126
+line_end = 129
+in_force_from = "2019-06-18"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the signature is in the mergetag header. A check needs the signer's key and the receiver's keyring of the time; history holds neither."
+
+[[clause]]
+id = "KPA-PR-tag-3"
+ref = "pull-requests.rst lines 121-122"
+title = "The request message is written like a commit message: a one-line summary subject first"
+doc = "PR"
+section = "tag"
+ordinal = 3
+force = "SHOULD"
+side = "requester"
+method = "mechanical"
+source = "Documentation/maintainer/pull-requests.rst"
+line_start = 121
+line_end = 122
+in_force_from = "2017-12-11"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the message of the signed tag. The check also requires a blank line after the first line, as in a commit message."
+
+[[clause]]
+id = "KPA-PR-tag-4"
+ref = "pull-requests.rst lines 118-122"
+title = "The request message ends with the requester's sign-off"
+doc = "PR"
+section = "tag"
+ordinal = 4
+force = "SHOULD"
+side = "requester"
+method = "mechanical"
+source = "Documentation/maintainer/pull-requests.rst"
+line_start = 118
+line_end = 122
+in_force_from = "2017-12-11"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: a Signed-off-by: line in the tag message. The kernel document shows it in its example."
+
+[[clause]]
+id = "KPA-PR-tag-5"
+ref = "pull-requests.rst lines 47-53"
+title = "The request message says what the request holds, why to take it and what was tested"
+doc = "PR"
+section = "tag"
+ordinal = 5
+force = "MUST"
+side = "requester"
+method = "reading"
+source = "Documentation/maintainer/pull-requests.rst"
+line_start = 47
+line_end = 53
+in_force_from = "2017-12-11"
+in_force_basis = "date of the document revision that added the text"
+
+[[clause]]
+id = "KPA-RM-merge-1"
+ref = "rebasing-and-merging.rst lines 122-124"
+title = "The merge message says why the merge is made; for a pulled tree, a summary of its changes"
+doc = "RM"
+section = "merge"
+ordinal = 1
+force = "SHOULD"
+side = "integrator"
+method = "mechanical"
+source = "Documentation/maintainer/rebasing-and-merging.rst"
+line_start = 122
+line_end = 124
+in_force_from = "2019-06-18"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the merge commit message. The check tests that the message body is not empty and that, when a signed tag is present, at least half of the tag's words of five or more letters recur in the merge message. The document says the integrator may edit the text."
+
+[[clause]]
+id = "KPA-RM-base-1"
+ref = "rebasing-and-merging.rst lines 71-76"
+title = "The requested history starts from a release point, not an arbitrary revision"
+doc = "RM"
+section = "base"
+ordinal = 1
+force = "SHOULD"
+side = "requester"
+method = "mechanical"
+source = "Documentation/maintainer/rebasing-and-merging.rst"
+line_start = 71
+line_end = 76
+in_force_from = "2019-06-18"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the merge base of the two parents is compared with the tagged releases. The document states the rule for a branch that is moved to a new base; the check cannot see a move."
+
+[[clause]]
+id = "KPA-RM-rebase-1"
+ref = "rebasing-and-merging.rst lines 48-52"
+title = "History already published is not rebased before the request"
+doc = "RM"
+section = "rebase"
+ordinal = 1
+force = "SHOULD NOT"
+side = "requester"
+method = "not-decidable-from-history"
+source = "Documentation/maintainer/rebasing-and-merging.rst"
+line_start = 48
+line_end = 52
+in_force_from = "2019-06-18"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: needs the reflog of the requester's public repository. History in the integrator's repository does not hold it."
+
+[[clause]]
+id = "KPA-RM-back-1"
+ref = "rebasing-and-merging.rst lines 143-162"
+title = "The requested history holds no back merge of upstream, except at a release point"
+doc = "RM"
+section = "back"
+ordinal = 1
+force = "SHOULD NOT"
+side = "requester"
+method = "mechanical"
+source = "Documentation/maintainer/rebasing-and-merging.rst"
+line_start = 143
+line_end = 162
+in_force_from = "2019-06-18"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: a merge commit inside the requested range with a parent that is already in the upstream history."
+
+[[clause]]
+id = "KPA-RM-back-2"
+ref = "rebasing-and-merging.rst lines 157-159"
+title = "A back merge or cross merge that is needed explains why in its message"
+doc = "RM"
+section = "back"
+ordinal = 2
+force = "MUST"
+side = "requester"
+method = "reading"
+source = "Documentation/maintainer/rebasing-and-merging.rst"
+line_start = 157
+line_end = 159
+in_force_from = "2019-06-18"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the merge commit message."
+
+[[clause]]
+id = "KPA-HR-fix-1"
+ref = "handling-regressions.rst lines 127-137"
+title = "Later fix or revert references that name a change of the request"
+doc = "HR"
+section = "fix"
+ordinal = 1
+force = "observation"
+side = "none"
+method = "mechanical"
+source = "Documentation/process/handling-regressions.rst"
+line_start = 127
+line_end = 137
+in_force_from = "2022-02-24"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Observation, not a requirement: the cited lines ask the author of a fix to add a Fixes: tag. They do not ask that a request has no later fixes. Git: a later Fixes: trailer, or a later revert, that names a commit of the requested range. A named change shows a defect, not always a regression. Counts are a neutral fact and are never a deviation."

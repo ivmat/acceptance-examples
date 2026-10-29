@@ -1,0 +1,571 @@
+# Linux kernel acceptance of a single change: a declared slice. Row titles paraphrase; no kernel text is copied.
+# Source documents are GPL-2.0 kernel files read at the release named in `edition`.
+# Each row is dated. A row applies to a change only if the rule was in force at the change date (see README).
+
+[standard]
+id = "linux-commit-acceptance"
+version = "1.0.0"
+provenance = "external"
+slice = true
+title = "Linux kernel rules for accepting a single change"
+edition = "Linux v7.3 process documents: submitting-patches.rst, 5.Posting.rst, stable-kernel-rules.rst, coding-assistants.rst"
+numbering = "KCA-<doc>-<section>-<n>"
+slice_note = "A selection of the rules a maintainer checks when accepting one change. Rows are mechanical, reading, or not decidable from history. Email-only, tooling and tone rules are not rows."
+
+
+[[clause]]
+id = "KCA-SP-describe-1"
+ref = "submitting-patches.rst lines 48-52"
+title = "The description states the problem that motivated the change"
+doc = "SP"
+section = "describe"
+ordinal = 1
+force = "MUST"
+side = "author"
+method = "reading"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 48
+line_end = 52
+in_force_from = "2014-08-09"
+in_force_basis = "date of the document revision that added the text"
+
+[[clause]]
+id = "KCA-SP-describe-2"
+ref = "submitting-patches.rst lines 54-62"
+title = "The description states the user-visible impact of a fix"
+doc = "SP"
+section = "describe"
+ordinal = 2
+force = "SHOULD"
+side = "author"
+method = "reading"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 54
+line_end = 62
+in_force_from = "2014-08-09"
+in_force_basis = "date of the document revision that added the text"
+
+[[clause]]
+id = "KCA-SP-describe-3"
+ref = "submitting-patches.rst lines 94-97"
+title = "The description says what the change does, in the imperative"
+doc = "SP"
+section = "describe"
+ordinal = 3
+force = "SHOULD"
+side = "author"
+method = "reading"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 94
+line_end = 97
+in_force_from = "2014-04-03"
+in_force_basis = "date of the document revision that added the text"
+
+[[clause]]
+id = "KCA-SP-describe-4"
+ref = "submitting-patches.rst lines 99-113"
+title = "A reference to an earlier change gives an id of at least 12 characters and its one-line summary"
+doc = "SP"
+section = "describe"
+ordinal = 4
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 99
+line_end = 113
+in_force_from = "2014-12-23"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the id is a SHA-1 hash. The check looks for text of the form 'commit <hex>' in the description."
+
+[[clause]]
+id = "KCA-SP-describe-5"
+ref = "submitting-patches.rst lines 115-128"
+title = "A background link is a web address that works"
+doc = "SP"
+section = "describe"
+ordinal = 5
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 115
+line_end = 128
+in_force_from = "2021-10-28"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the Link: trailer. The check tests the form of the address; it does not test that the address works."
+
+[[clause]]
+id = "KCA-SP-describe-6"
+ref = "submitting-patches.rst lines 135-143"
+title = "A report address for a fixed bug is a public address"
+doc = "SP"
+section = "describe"
+ordinal = 6
+force = "MUST"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 135
+line_end = 143
+in_force_from = "2023-04-18"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the Closes: trailer. The check tests the form of the address only."
+
+[[clause]]
+id = "KCA-SP-describe-7"
+ref = "submitting-patches.rst lines 541-548"
+title = "A credited reporter is followed by a link to the report, unless the report is not public"
+doc = "SP"
+section = "describe"
+ordinal = 7
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 541
+line_end = 548
+in_force_from = "2023-06-25"
+in_force_basis = "release date of the first tagged release holding the text; the exact revision was not located"
+binding_note = "Git: Reported-by: followed by Closes: or Link:. History cannot show whether a report was public, so a missing link is recorded as not met."
+
+[[clause]]
+id = "KCA-SP-describe-8"
+ref = "submitting-patches.rst lines 145-151"
+title = "A fix names the change it fixes on one line: id of at least 12 characters and the quoted summary"
+doc = "SP"
+section = "describe"
+ordinal = 8
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 145
+line_end = 151
+in_force_from = "2014-06-06"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the Fixes: trailer, written as '<12 or more hex characters> (\"<summary>\")'."
+
+[[clause]]
+id = "KCA-SP-describe-9"
+ref = "submitting-patches.rst lines 145-151"
+title = "The change named by a fix exists, and the quoted summary is its summary"
+doc = "SP"
+section = "describe"
+ordinal = 9
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 145
+line_end = 151
+in_force_from = "2014-06-06"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the id resolves to one commit whose subject equals the quoted summary."
+
+[[clause]]
+id = "KCA-SP-describe-10"
+ref = "submitting-patches.rst lines 604-609"
+title = "The change named by a fix is older than the fix"
+doc = "SP"
+section = "describe"
+ordinal = 10
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 604
+line_end = 609
+in_force_from = "2014-06-06"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: compares committer times of the two commits. Time order is a proxy for ancestry."
+
+[[clause]]
+id = "KCA-SP-describe-11"
+ref = "submitting-patches.rst lines 604-609"
+title = "A change that fixes a defect in an earlier change names that change"
+doc = "SP"
+section = "describe"
+ordinal = 11
+force = "SHOULD"
+side = "author"
+method = "reading"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 604
+line_end = 609
+in_force_from = "2014-06-06"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: needs a Fixes: trailer."
+
+[[clause]]
+id = "KCA-SP-split-1"
+ref = "submitting-patches.rst lines 171-184"
+title = "Each patch holds one logical change"
+doc = "SP"
+section = "split"
+ordinal = 1
+force = "MUST"
+side = "author"
+method = "reading"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 171
+line_end = 184
+in_force_from = "2005-04-16"
+in_force_basis = "start of recorded history; text present in the first recorded revision of the document"
+
+[[clause]]
+id = "KCA-PO-prep-1"
+ref = "5.Posting.rst lines 110-115"
+title = "Each change leaves a tree that builds and runs"
+doc = "PO"
+section = "prep"
+ordinal = 1
+force = "SHOULD"
+side = "author"
+method = "not-decidable-from-history"
+source = "Documentation/process/5.Posting.rst"
+line_start = 110
+line_end = 115
+in_force_from = "2008-10-16"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "A check would build the tree at each change. That was not reproduced."
+
+[[clause]]
+id = "KCA-SP-style-1"
+ref = "submitting-patches.rst lines 204-220"
+title = "The change follows the coding style and the style checker was run"
+doc = "SP"
+section = "style"
+ordinal = 1
+force = "SHOULD"
+side = "author"
+method = "not-decidable-from-history"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 204
+line_end = 220
+in_force_from = "2007-06-01"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "A check would run the style checker of the time on each change. That was not reproduced."
+
+[[clause]]
+id = "KCA-SP-recipients-1"
+ref = "submitting-patches.rst lines 234-244"
+title = "The change was sent to the maintainers and lists of the code it touches"
+doc = "SP"
+section = "recipients"
+ordinal = 1
+force = "SHOULD"
+side = "author"
+method = "not-decidable-from-history"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 234
+line_end = 244
+in_force_from = "2005-04-16"
+in_force_basis = "start of recorded history; text present in the first recorded revision of the document"
+binding_note = "Email: the history holds no record of the recipients."
+
+[[clause]]
+id = "KCA-SP-subject-1"
+ref = "submitting-patches.rst lines 655-660"
+title = "The subject line names the subsystem, then a summary"
+doc = "SP"
+section = "subject"
+ordinal = 1
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 655
+line_end = 660
+in_force_from = "2005-10-03"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: the first line of the commit message. A subject that begins with the tool-made 'Revert \"' is read after that prefix."
+
+[[clause]]
+id = "KCA-SP-subject-2"
+ref = "submitting-patches.rst lines 689-693"
+title = "The summary is not a file name"
+doc = "SP"
+section = "subject"
+ordinal = 2
+force = "SHOULD NOT"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 689
+line_end = 693
+in_force_from = "2005-10-03"
+in_force_basis = "date of the document revision that added the text"
+
+[[clause]]
+id = "KCA-SP-subject-3"
+ref = "submitting-patches.rst lines 705-709"
+title = "The subject line is at most 75 characters"
+doc = "SP"
+section = "subject"
+ordinal = 3
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 705
+line_end = 709
+in_force_from = "2009-09-09"
+in_force_basis = "release date of the first tagged release holding the text; the exact revision was not located"
+
+[[clause]]
+id = "KCA-SP-subject-4"
+ref = "submitting-patches.rst lines 695-714"
+title = "The recorded summary leaves out submission tags such as [PATCH]"
+doc = "SP"
+section = "subject"
+ordinal = 4
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 695
+line_end = 714
+in_force_from = "2009-09-09"
+in_force_basis = "release date of the first tagged release holding the text; the exact revision was not located"
+binding_note = "Email: the tags belong to the mail subject. The check looks for bracketed submission tags in the commit subject."
+
+[[clause]]
+id = "KCA-SP-body-1"
+ref = "submitting-patches.rst lines 667-668"
+title = "Description lines are wrapped at 75 columns"
+doc = "SP"
+section = "body"
+ordinal = 1
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 667
+line_end = 668
+in_force_from = "2015-04-17"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Lines that are indented, hold an address or are trailers are not counted, because the document exempts tags and quoted text."
+
+[[clause]]
+id = "KCA-SP-sign-1"
+ref = "submitting-patches.rst lines 404-442"
+title = "Each change carries a sign-off that certifies its origin"
+doc = "SP"
+section = "sign"
+ordinal = 1
+force = "MUST"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 404
+line_end = 442
+in_force_from = "2005-04-16"
+in_force_basis = "start of recorded history; text present in the first recorded revision of the document"
+binding_note = "Git: the Signed-off-by: trailer (Developer's Certificate of Origin)."
+
+[[clause]]
+id = "KCA-SP-sign-2"
+ref = "submitting-patches.rst lines 448-452"
+title = "The author of the change is among the signers"
+doc = "SP"
+section = "sign"
+ordinal = 2
+force = "MUST"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 448
+line_end = 452
+in_force_from = "2005-04-16"
+in_force_basis = "start of recorded history; text present in the first recorded revision of the document"
+binding_note = "Git: the author identity matches a Signed-off-by: identity by name or by address."
+
+[[clause]]
+id = "KCA-SP-sign-3"
+ref = "submitting-patches.rst lines 448-452"
+title = "The first sign-off is the author's, or a co-developer's whose tag precedes it"
+doc = "SP"
+section = "sign"
+ordinal = 3
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 448
+line_end = 452
+in_force_from = "2020-12-21"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: first Signed-off-by: against the author; Co-developed-by: gives the exception (rule text at lines 502 to 510)."
+
+[[clause]]
+id = "KCA-SP-sign-4"
+ref = "submitting-patches.rst lines 448-451"
+title = "Each person who handled the change signs it"
+doc = "SP"
+section = "sign"
+ordinal = 4
+force = "SHOULD"
+side = "handler"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 448
+line_end = 451
+in_force_from = "2007-06-08"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: when the committer differs from the author, the committer appears in a Signed-off-by: line."
+
+[[clause]]
+id = "KCA-SP-sign-5"
+ref = "submitting-patches.rst lines 502-506"
+title = "A co-developer credit is directly followed by that co-developer's sign-off"
+doc = "SP"
+section = "sign"
+ordinal = 5
+force = "MUST"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 502
+line_end = 506
+in_force_from = "2018-06-03"
+in_force_basis = "release date of the first tagged release holding the text; the exact revision was not located"
+binding_note = "Git: Co-developed-by: followed by Signed-off-by: with the same identity."
+
+[[clause]]
+id = "KCA-SP-tags-1"
+ref = "submitting-patches.rst lines 625-633"
+title = "A person named in an approval, review or test credit gave explicit permission"
+doc = "SP"
+section = "tags"
+ordinal = 1
+force = "MUST"
+side = "author"
+method = "not-decidable-from-history"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 625
+line_end = 633
+in_force_from = "2025-03-17"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Email: permission is given in mail that history does not hold."
+
+[[clause]]
+id = "KCA-SP-tags-2"
+ref = "submitting-patches.rst lines 461-467"
+title = "An acknowledgement comes from a person who did not write or handle the change"
+doc = "SP"
+section = "tags"
+ordinal = 2
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/submitting-patches.rst"
+line_start = 461
+line_end = 467
+in_force_from = "2007-06-08"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: Acked-by: identity is not an author, committer or Signed-off-by: identity."
+
+[[clause]]
+id = "KCA-PO-tags-1"
+ref = "5.Posting.rst lines 229-233"
+title = "A person credit has the form tag, full name, address"
+doc = "PO"
+section = "tags"
+ordinal = 1
+force = "SHOULD"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/5.Posting.rst"
+line_start = 229
+line_end = 233
+in_force_from = "2008-10-16"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: applies to Signed-off-by, Co-developed-by, Acked-by, Reviewed-by, Tested-by, Reported-by and Suggested-by lines."
+
+[[clause]]
+id = "KCA-SK-cc-1"
+ref = "stable-kernel-rules.rst lines 70-77"
+title = "A stable-release request names a stable-team address in the sign-off area"
+doc = "SK"
+section = "cc"
+ordinal = 1
+force = "MUST"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/stable-kernel-rules.rst"
+line_start = 70
+line_end = 77
+in_force_from = "2005-07-29"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: a Cc: trailer to stable@vger.kernel.org or stable@kernel.org."
+
+[[clause]]
+id = "KCA-HR-cc-1"
+ref = "handling-regressions.rst lines 129-130"
+title = "A fix for a defect that shipped in an earlier development cycle requests a stable backport"
+doc = "HR"
+section = "cc"
+ordinal = 1
+force = "SHOULD"
+side = "author"
+method = "reading"
+source = "Documentation/process/handling-regressions.rst"
+line_start = 129
+line_end = 130
+in_force_from = "2022-02-24"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: needs a Cc: stable trailer. Whether the defect shipped in an earlier cycle is a judgment on release history."
+
+[[clause]]
+id = "KCA-CA-sign-1"
+ref = "coding-assistants.rst lines 34-41"
+title = "An automated assistant does not add a sign-off"
+doc = "CA"
+section = "sign"
+ordinal = 1
+force = "MUST NOT"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/coding-assistants.rst"
+line_start = 34
+line_end = 41
+in_force_from = "2026-01-06"
+in_force_basis = "date of the document revision that added the text"
+binding_note = "Git: no Signed-off-by: trailer names an AI tool or agent. The check matches a fixed word list."
+
+[[clause]]
+id = "KCA-CA-attr-1"
+ref = "coding-assistants.rst lines 46-50"
+title = "Use of an AI coding assistant is disclosed"
+doc = "CA"
+section = "attr"
+ordinal = 1
+force = "MUST"
+side = "author"
+method = "not-decidable-from-history"
+source = "Documentation/process/coding-assistants.rst"
+line_start = 46
+line_end = 50
+in_force_from = "2026-01-06"
+in_force_basis = "date of the document revision that added the text"
+in_force_to = "2026-10-14"
+binding_note = "Git: the Assisted-by: trailer. History cannot show whether an assistant was used. The rule was removed after the pinned release, by a change dated 2026-10-14."
+
+[[clause]]
+id = "KCA-CA-attr-2"
+ref = "coding-assistants.rst lines 48-60"
+title = "A disclosure has the prescribed form"
+doc = "CA"
+section = "attr"
+ordinal = 2
+force = "MUST"
+side = "author"
+method = "mechanical"
+source = "Documentation/process/coding-assistants.rst"
+line_start = 48
+line_end = 60
+in_force_from = "2026-01-06"
+in_force_basis = "date of the document revision that added the text"
+in_force_to = "2026-10-14"
+binding_note = "Git: the Assisted-by: trailer, form 'Assisted-by: LLM [TOOL...]' at the pinned release. The rule was removed after the pinned release, by a change dated 2026-10-14."

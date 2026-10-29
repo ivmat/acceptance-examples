@@ -1,0 +1,1158 @@
+# Linux kernel C code rules: a declared slice. Row titles paraphrase; no kernel text is copied.
+# Source documents are GPL-2.0 kernel files read at the pinned tag (Linux v7.3).
+
+[standard]
+id = "linux-code-rules"
+version = "1.0.0"
+provenance = "external"
+slice = true
+title = "Linux kernel C code rules"
+edition = "Linux v7.3 Documentation/process/deprecated.rst and coding-style.rst"
+numbering = "KCR-<doc>-<section>-<n>"
+slice_note = "All entries of deprecated.rst. A selection of coding-style.rst: the rules that a tool or a precise reading can decide. Kconfig, editor setup, data-structure design and architecture-specific advice are not rows."
+
+[[clause]]
+id = "KCR-DEP-1-1"
+ref = "deprecated.rst section 1"
+title = "The __deprecated attribute is not used to mark an interface"
+doc = "DEP"
+section = "1"
+force = "SHOULD NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 20
+line_end = 30
+
+[[clause]]
+id = "KCR-DEP-2-1"
+ref = "deprecated.rst section 2"
+title = "No BUG() or BUG_ON() calls; use WARN()-family with recovery"
+doc = "DEP"
+section = "2"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 32
+line_end = 44
+
+[[clause]]
+id = "KCR-DEP-2-2"
+ref = "deprecated.rst section 2"
+title = "WARN()-family only for expected-unreachable states; pr_warn() for reachable ones"
+doc = "DEP"
+section = "2"
+force = "SHOULD"
+side = "author"
+method = "reading"
+source = "Documentation/process/deprecated.rst"
+line_start = 46
+line_end = 52
+
+[[clause]]
+id = "KCR-DEP-3-1"
+ref = "deprecated.rst section 3"
+title = "No open-coded arithmetic in an allocator size argument"
+doc = "DEP"
+section = "3"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 56
+line_end = 64
+
+[[clause]]
+id = "KCR-DEP-3-2"
+ref = "deprecated.rst section 3"
+title = "A count-times-size allocation uses the two-factor allocator form"
+doc = "DEP"
+section = "3"
+force = "MUST"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 66
+line_end = 75
+
+[[clause]]
+id = "KCR-DEP-3-3"
+ref = "deprecated.rst section 3"
+title = "A struct with a trailing array is sized with struct_size()"
+doc = "DEP"
+section = "3"
+force = "MUST"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 82
+line_end = 90
+
+[[clause]]
+id = "KCR-DEP-3-4"
+ref = "deprecated.rst section 3"
+title = "Other size calculations compose size_mul(), size_add() and size_sub()"
+doc = "DEP"
+section = "3"
+force = "MUST"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 97
+line_end = 106
+
+[[clause]]
+id = "KCR-DEP-4-1"
+ref = "deprecated.rst section 4"
+title = "No simple_strtol(), simple_strtoll(), simple_strtoul() or simple_strtoull()"
+doc = "DEP"
+section = "4"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 112
+line_end = 120
+
+[[clause]]
+id = "KCR-DEP-5-1"
+ref = "deprecated.rst section 5"
+title = "No strcpy() calls"
+doc = "DEP"
+section = "5"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 122
+line_end = 132
+
+[[clause]]
+id = "KCR-DEP-6-1"
+ref = "deprecated.rst section 6"
+title = "No strncpy() calls"
+doc = "DEP"
+section = "6"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 134
+line_end = 159
+
+[[clause]]
+id = "KCR-DEP-7-1"
+ref = "deprecated.rst section 7"
+title = "No strlcpy() calls"
+doc = "DEP"
+section = "7"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 161
+line_end = 168
+
+[[clause]]
+id = "KCR-DEP-8-1"
+ref = "deprecated.rst section 8"
+title = "No plain %p in a format string"
+doc = "DEP"
+section = "8"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 170
+line_end = 178
+
+[[clause]]
+id = "KCR-DEP-9-1"
+ref = "deprecated.rst section 9"
+title = "No variable-length arrays"
+doc = "DEP"
+section = "9"
+force = "MUST NOT"
+side = "author"
+method = "compiler"
+source = "Documentation/process/deprecated.rst"
+line_start = 194
+line_end = 203
+
+[[clause]]
+id = "KCR-DEP-10-1"
+ref = "deprecated.rst section 10"
+title = "The compiler finds no implicit switch fall-through"
+doc = "DEP"
+section = "10"
+force = "MUST NOT"
+side = "author"
+method = "compiler"
+source = "Documentation/process/deprecated.rst"
+line_start = 224
+line_end = 232
+
+[[clause]]
+id = "KCR-DEP-10-2"
+ref = "deprecated.rst section 10"
+title = "Every case block ends in break, fallthrough, continue, goto or return"
+doc = "DEP"
+section = "10"
+force = "MUST"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 234
+line_end = 240
+
+[[clause]]
+id = "KCR-DEP-11-1"
+ref = "deprecated.rst section 11"
+title = "No zero-length array as a trailing member"
+doc = "DEP"
+section = "11"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 244
+line_end = 248
+
+[[clause]]
+id = "KCR-DEP-11-2"
+ref = "deprecated.rst section 11"
+title = "No one-element array as a trailing member"
+doc = "DEP"
+section = "11"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 250
+line_end = 257
+
+[[clause]]
+id = "KCR-DEP-11-3"
+ref = "deprecated.rst section 11"
+title = "A flexible array alone in a struct or in a union uses DECLARE_FLEX_ARRAY()"
+doc = "DEP"
+section = "11"
+force = "MUST"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 355
+line_end = 379
+
+[[clause]]
+id = "KCR-DEP-12-1"
+ref = "deprecated.rst section 12"
+title = "Allocation assignments use the kmalloc_obj() family"
+doc = "DEP"
+section = "12"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/deprecated.rst"
+line_start = 381
+line_end = 411
+
+[[clause]]
+id = "KCR-CS-1-1"
+ref = "coding-style.rst chapter 1"
+title = "Indentation uses tabs of eight columns; spaces are not used for indentation"
+doc = "CS"
+section = "1"
+force = "MUST"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 21
+line_end = 24
+
+[[clause]]
+id = "KCR-CS-1-2"
+ref = "coding-style.rst chapter 1"
+title = "Case labels align with their switch"
+doc = "CS"
+section = "1"
+force = "SHOULD"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 41
+line_end = 62
+
+[[clause]]
+id = "KCR-CS-1-3"
+ref = "coding-style.rst chapter 1"
+title = "One statement per line"
+doc = "CS"
+section = "1"
+force = "MUST"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 64
+line_end = 71
+
+[[clause]]
+id = "KCR-CS-1-4"
+ref = "coding-style.rst chapter 1"
+title = "No comma operator to avoid braces"
+doc = "CS"
+section = "1"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 72
+line_end = 77
+
+[[clause]]
+id = "KCR-CS-1-5"
+ref = "coding-style.rst chapter 1"
+title = "Braces enclose multiple statements; the compiler finds no misleading indentation"
+doc = "CS"
+section = "1"
+force = "MUST"
+side = "author"
+method = "compiler"
+source = "Documentation/process/coding-style.rst"
+line_start = 79
+line_end = 86
+
+[[clause]]
+id = "KCR-CS-1-6"
+ref = "coding-style.rst chapter 1"
+title = "One assignment per statement"
+doc = "CS"
+section = "1"
+force = "SHOULD"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 88
+line_end = 89
+
+[[clause]]
+id = "KCR-CS-1-7"
+ref = "coding-style.rst chapter 1"
+title = "No trailing whitespace"
+doc = "CS"
+section = "1"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 95
+line_end = 95
+note = "Chapter 3.1 repeats the rule at lines 293-298."
+
+[[clause]]
+id = "KCR-CS-2-1"
+ref = "coding-style.rst chapter 2"
+title = "Lines stay within 80 columns unless a longer line is clearer"
+doc = "CS"
+section = "2"
+force = "SHOULD"
+side = "author"
+method = "checkpatch"
+source = "Documentation/process/coding-style.rst"
+line_start = 104
+line_end = 108
+
+[[clause]]
+id = "KCR-CS-2-2"
+ref = "coding-style.rst chapter 2"
+title = "Wrapped lines are shorter than the parent and align to the open parenthesis"
+doc = "CS"
+section = "2"
+force = "SHOULD"
+side = "author"
+method = "checkpatch"
+source = "Documentation/process/coding-style.rst"
+line_start = 110
+line_end = 114
+
+[[clause]]
+id = "KCR-CS-2-3"
+ref = "coding-style.rst chapter 2"
+title = "User-visible strings are not broken across lines"
+doc = "CS"
+section = "2"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 116
+line_end = 117
+
+[[clause]]
+id = "KCR-CS-3-1"
+ref = "coding-style.rst chapter 3"
+title = "A non-function block opens with its brace last on the line"
+doc = "CS"
+section = "3"
+force = "SHOULD"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 123
+line_end = 149
+
+[[clause]]
+id = "KCR-CS-3-2"
+ref = "coding-style.rst chapter 3"
+title = "A function opens with its brace at the start of the next line"
+doc = "CS"
+section = "3"
+force = "SHOULD"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 151
+line_end = 159
+
+[[clause]]
+id = "KCR-CS-3-3"
+ref = "coding-style.rst chapter 3"
+title = "A closing brace has its own line unless else or while continues the statement"
+doc = "CS"
+section = "3"
+force = "SHOULD"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 166
+line_end = 187
+
+[[clause]]
+id = "KCR-CS-3-4"
+ref = "coding-style.rst chapter 3"
+title = "No braces around a single statement"
+doc = "CS"
+section = "3"
+force = "SHOULD"
+side = "author"
+method = "checkpatch"
+source = "Documentation/process/coding-style.rst"
+line_start = 197
+line_end = 211
+
+[[clause]]
+id = "KCR-CS-3-5"
+ref = "coding-style.rst chapter 3"
+title = "If one branch needs braces, every branch of the conditional has them"
+doc = "CS"
+section = "3"
+force = "SHOULD"
+side = "author"
+method = "checkpatch"
+source = "Documentation/process/coding-style.rst"
+line_start = 213
+line_end = 223
+
+[[clause]]
+id = "KCR-CS-3-6"
+ref = "coding-style.rst chapter 3"
+title = "A loop whose body is more than one simple statement has braces"
+doc = "CS"
+section = "3"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 225
+line_end = 232
+
+[[clause]]
+id = "KCR-CS-3-7"
+ref = "coding-style.rst chapter 3"
+title = "A space follows if, switch, case, for, do and while"
+doc = "CS"
+section = "3"
+force = "MUST"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 244
+line_end = 248
+
+[[clause]]
+id = "KCR-CS-3-8"
+ref = "coding-style.rst chapter 3"
+title = "No space between sizeof, typeof, alignof or __attribute__ and its parenthesis"
+doc = "CS"
+section = "3"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 248
+line_end = 253
+
+[[clause]]
+id = "KCR-CS-3-9"
+ref = "coding-style.rst chapter 3"
+title = "No space just inside parentheses"
+doc = "CS"
+section = "3"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 255
+line_end = 261
+
+[[clause]]
+id = "KCR-CS-3-10"
+ref = "coding-style.rst chapter 3"
+title = "The pointer star sits next to the name, not the type"
+doc = "CS"
+section = "3"
+force = "SHOULD"
+side = "author"
+method = "checkpatch"
+source = "Documentation/process/coding-style.rst"
+line_start = 263
+line_end = 272
+
+[[clause]]
+id = "KCR-CS-3-11"
+ref = "coding-style.rst chapter 3"
+title = "One space on each side of binary and ternary operators"
+doc = "CS"
+section = "3"
+force = "SHOULD"
+side = "author"
+method = "checkpatch"
+source = "Documentation/process/coding-style.rst"
+line_start = 274
+line_end = 277
+
+[[clause]]
+id = "KCR-CS-3-12"
+ref = "coding-style.rst chapter 3"
+title = "No space after unary operators or beside ++ and --"
+doc = "CS"
+section = "3"
+force = "SHOULD"
+side = "author"
+method = "checkpatch"
+source = "Documentation/process/coding-style.rst"
+line_start = 279
+line_end = 289
+
+[[clause]]
+id = "KCR-CS-3-13"
+ref = "coding-style.rst chapter 3"
+title = "No space around the . and -> member operators"
+doc = "CS"
+section = "3"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 291
+line_end = 291
+
+[[clause]]
+id = "KCR-CS-4-1"
+ref = "coding-style.rst chapter 4"
+title = "Identifiers are not mixed-case"
+doc = "CS"
+section = "4"
+force = "SHOULD NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 315
+line_end = 317
+
+[[clause]]
+id = "KCR-CS-4-2"
+ref = "coding-style.rst chapter 4"
+title = "Global names are descriptive"
+doc = "CS"
+section = "4"
+force = "guidance"
+side = "author"
+method = "reading"
+source = "Documentation/process/coding-style.rst"
+line_start = 319
+line_end = 322
+
+[[clause]]
+id = "KCR-CS-4-3"
+ref = "coding-style.rst chapter 4"
+title = "No Hungarian notation in names"
+doc = "CS"
+section = "4"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 324
+line_end = 326
+
+[[clause]]
+id = "KCR-CS-4-4"
+ref = "coding-style.rst chapter 4"
+title = "No new master/slave or blacklist/whitelist terms"
+doc = "CS"
+section = "4"
+force = "SHOULD NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 338
+line_end = 357
+
+[[clause]]
+id = "KCR-CS-5-1"
+ref = "coding-style.rst chapter 5"
+title = "No typedef for a structure or pointer"
+doc = "CS"
+section = "5"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 362
+line_end = 364
+
+[[clause]]
+id = "KCR-CS-6-1"
+ref = "coding-style.rst chapter 6"
+title = "A function fits one or two screens of text (48 lines)"
+doc = "CS"
+section = "6"
+force = "guidance"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 446
+line_end = 454
+note = "Measured from the signature line to the closing brace. The case-statement exemption is not applied."
+
+[[clause]]
+id = "KCR-CS-6-2"
+ref = "coding-style.rst chapter 6"
+title = "A function has no more than ten local variables"
+doc = "CS"
+section = "6"
+force = "guidance"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 464
+line_end = 469
+
+[[clause]]
+id = "KCR-CS-6-3"
+ref = "coding-style.rst chapter 6"
+title = "Functions are separated by one blank line"
+doc = "CS"
+section = "6"
+force = "MUST"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 471
+line_end = 472
+
+[[clause]]
+id = "KCR-CS-6-4"
+ref = "coding-style.rst chapter 6"
+title = "The EXPORT macro follows the function's closing brace at once"
+doc = "CS"
+section = "6"
+force = "MUST"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 472
+line_end = 474
+
+[[clause]]
+id = "KCR-CS-6-5"
+ref = "coding-style.rst chapter 6"
+title = "Function parameters carry names"
+doc = "CS"
+section = "6"
+force = "SHOULD"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 486
+line_end = 488
+
+[[clause]]
+id = "KCR-CS-6-6"
+ref = "coding-style.rst chapter 6"
+title = "No extern keyword on function declarations"
+doc = "CS"
+section = "6"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 490
+line_end = 491
+
+[[clause]]
+id = "KCR-CS-7-1"
+ref = "coding-style.rst chapter 7"
+title = "Goto labels say what the jump does; no numbered labels such as err1"
+doc = "CS"
+section = "7"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 536
+line_end = 540
+
+[[clause]]
+id = "KCR-CS-7-2"
+ref = "coding-style.rst chapter 7"
+title = "A function with several exits and cleanup uses a goto exit"
+doc = "CS"
+section = "7"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 532
+line_end = 534
+
+[[clause]]
+id = "KCR-CS-7-3"
+ref = "coding-style.rst chapter 7"
+title = "Goto labels start at column zero"
+doc = "CS"
+section = "7"
+force = "guidance"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 550
+line_end = 572
+
+[[clause]]
+id = "KCR-CS-8-1"
+ref = "coding-style.rst chapter 8"
+title = "Multi-line comments use the block style: /* alone, a column of asterisks, */ alone"
+doc = "CS"
+section = "8"
+force = "SHOULD"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 622
+line_end = 633
+
+[[clause]]
+id = "KCR-CS-8-2"
+ref = "coding-style.rst chapter 8"
+title = "Kernel API functions carry a kernel-doc comment"
+doc = "CS"
+section = "8"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 615
+line_end = 620
+
+[[clause]]
+id = "KCR-CS-8-3"
+ref = "coding-style.rst chapter 8"
+title = "Comments say what the code does, not how; few comments sit inside function bodies"
+doc = "CS"
+section = "8"
+force = "guidance"
+side = "author"
+method = "reading"
+source = "Documentation/process/coding-style.rst"
+line_start = 601
+line_end = 613
+
+[[clause]]
+id = "KCR-CS-8-4"
+ref = "coding-style.rst chapter 8"
+title = "One data declaration per line"
+doc = "CS"
+section = "8"
+force = "SHOULD"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 635
+line_end = 638
+
+[[clause]]
+id = "KCR-CS-11-1"
+ref = "coding-style.rst chapter 11"
+title = "Shared data structures carry a reference count"
+doc = "CS"
+section = "11"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 766
+line_end = 770
+
+[[clause]]
+id = "KCR-CS-12-1"
+ref = "coding-style.rst chapter 12"
+title = "Constant macros and enum labels are capitalized"
+doc = "CS"
+section = "12"
+force = "MUST"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 798
+line_end = 802
+
+[[clause]]
+id = "KCR-CS-12-2"
+ref = "coding-style.rst chapter 12"
+title = "A multi-statement macro is wrapped in do { } while (0)"
+doc = "CS"
+section = "12"
+force = "MUST"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 811
+line_end = 819
+
+[[clause]]
+id = "KCR-CS-12-3"
+ref = "coding-style.rst chapter 12"
+title = "No macro changes control flow of its caller"
+doc = "CS"
+section = "12"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 846
+line_end = 857
+
+[[clause]]
+id = "KCR-CS-12-4"
+ref = "coding-style.rst chapter 12"
+title = "No macro depends on a local variable of its caller by magic name"
+doc = "CS"
+section = "12"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 859
+line_end = 866
+
+[[clause]]
+id = "KCR-CS-12-5"
+ref = "coding-style.rst chapter 12"
+title = "A macro defining a constant expression is enclosed in parentheses"
+doc = "CS"
+section = "12"
+force = "MUST"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 871
+line_end = 878
+
+[[clause]]
+id = "KCR-CS-12-6"
+ref = "coding-style.rst chapter 12"
+title = "Several related constants are preferably an enum"
+doc = "CS"
+section = "12"
+force = "guidance"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 804
+line_end = 804
+
+[[clause]]
+id = "KCR-CS-12-7"
+ref = "coding-style.rst chapter 12"
+title = "A function-like macro that an inline function can replace is an inline function"
+doc = "CS"
+section = "12"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 821
+line_end = 834
+
+[[clause]]
+id = "KCR-CS-13-1"
+ref = "coding-style.rst chapter 13"
+title = "Kernel messages are spelled correctly; no contraction such as dont"
+doc = "CS"
+section = "13"
+force = "MUST"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 902
+line_end = 905
+
+[[clause]]
+id = "KCR-CS-13-2"
+ref = "coding-style.rst chapter 13"
+title = "Kernel messages do not end with a period"
+doc = "CS"
+section = "13"
+force = "guidance"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 907
+line_end = 907
+
+[[clause]]
+id = "KCR-CS-13-3"
+ref = "coding-style.rst chapter 13"
+title = "Numbers in messages are not printed in parentheses"
+doc = "CS"
+section = "13"
+force = "SHOULD NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 909
+line_end = 909
+
+[[clause]]
+id = "KCR-CS-13-4"
+ref = "coding-style.rst chapter 13"
+title = "Messages use pr_*() or dev_*(), not bare printk()"
+doc = "CS"
+section = "13"
+force = "SHOULD"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 911
+line_end = 917
+
+[[clause]]
+id = "KCR-CS-13-5"
+ref = "coding-style.rst chapter 13"
+title = "A working driver is quiet: no info or notice messages on the normal path"
+doc = "CS"
+section = "13"
+force = "guidance"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 916
+line_end = 917
+
+[[clause]]
+id = "KCR-CS-14-1"
+ref = "coding-style.rst chapter 14"
+title = "Allocator sizes use sizeof(*p) or kmalloc_obj(), not a spelled struct name"
+doc = "CS"
+section = "14"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 944
+line_end = 952
+
+[[clause]]
+id = "KCR-CS-14-2"
+ref = "coding-style.rst chapter 14"
+title = "No cast of the void pointer an allocator returns"
+doc = "CS"
+section = "14"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 954
+line_end = 956
+
+[[clause]]
+id = "KCR-CS-14-3"
+ref = "coding-style.rst chapter 14"
+title = "No extra message after an allocation failure"
+doc = "CS"
+section = "14"
+force = "SHOULD NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 973
+line_end = 975
+
+[[clause]]
+id = "KCR-CS-15-1"
+ref = "coding-style.rst chapter 15"
+title = "No inline on a function longer than three lines"
+doc = "CS"
+section = "15"
+force = "SHOULD NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 990
+line_end = 995
+
+[[clause]]
+id = "KCR-CS-16-1"
+ref = "coding-style.rst chapter 16"
+title = "Public and exported functions return -Exxx or a success boolean, never a bare -1"
+doc = "CS"
+section = "16"
+force = "MUST"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1029
+line_end = 1030
+
+[[clause]]
+id = "KCR-CS-16-2"
+ref = "coding-style.rst chapter 16"
+title = "Static functions also return -Exxx or a success boolean"
+doc = "CS"
+section = "16"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1030
+line_end = 1031
+
+[[clause]]
+id = "KCR-CS-17-1"
+ref = "coding-style.rst chapter 17"
+title = "bool values use true and false, with no !! construction"
+doc = "CS"
+section = "17"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1048
+line_end = 1049
+
+[[clause]]
+id = "KCR-CS-18-1"
+ref = "coding-style.rst chapter 18"
+title = "Use ARRAY_SIZE(), sizeof_field(), min() and max() instead of open-coded variants"
+doc = "CS"
+section = "18"
+force = "SHOULD"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1073
+line_end = 1094
+
+[[clause]]
+id = "KCR-CS-19-1"
+ref = "coding-style.rst chapter 19"
+title = "No editor modelines or similar markers"
+doc = "CS"
+section = "19"
+force = "MUST NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1124
+line_end = 1128
+
+[[clause]]
+id = "KCR-CS-20-1"
+ref = "coding-style.rst chapter 20"
+title = "Multi-instruction inline asm puts each instruction in its own string ending \\n\\t"
+doc = "CS"
+section = "20"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1151
+line_end = 1160
+
+[[clause]]
+id = "KCR-CS-21-1"
+ref = "coding-style.rst chapter 21"
+title = "No #if or #ifdef in a .c file where a header stub can serve"
+doc = "CS"
+section = "21"
+force = "SHOULD NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1166
+line_end = 1172
+
+[[clause]]
+id = "KCR-CS-21-2"
+ref = "coding-style.rst chapter 21"
+title = "A long #if block closes with a comment naming its condition"
+doc = "CS"
+section = "21"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1201
+line_end = 1209
+
+[[clause]]
+id = "KCR-CS-22-1"
+ref = "coding-style.rst chapter 22"
+title = "No panic() outside system boot"
+doc = "CS"
+section = "22"
+force = "SHOULD NOT"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1221
+line_end = 1223
+
+[[clause]]
+id = "KCR-CS-22-2"
+ref = "coding-style.rst chapter 22"
+title = "No new BUG() variants; use WARN_ON_ONCE() with recovery"
+doc = "CS"
+section = "22"
+force = "MUST NOT"
+side = "author"
+method = "checkpatch+grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1228
+line_end = 1231
+
+[[clause]]
+id = "KCR-CS-22-3"
+ref = "coding-style.rst chapter 22"
+title = "WARN_ON_ONCE() is preferred over WARN() and WARN_ON()"
+doc = "CS"
+section = "22"
+force = "SHOULD"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1240
+line_end = 1244
