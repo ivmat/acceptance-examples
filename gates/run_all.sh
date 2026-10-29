@@ -4,6 +4,7 @@
 here=$(cd "$(dirname "$0")" && pwd)
 checks="lists links leaks secrets licence packages"
 status=0
+notes=""
 
 run_step() {
     label=$1
@@ -13,6 +14,12 @@ run_step() {
         if [ -n "$out" ]; then
             echo "$out" | sed 's/^/     /'
         fi
+        case "$out" in
+            *"nothing to run"*)
+                echo "     NOTE: $label ran nothing. This pass is not a real run."
+                notes="$notes $label"
+                ;;
+        esac
     else
         echo "FAIL $label"
         echo "$out" | sed 's/^/     /'
@@ -29,6 +36,9 @@ done
 
 if [ "$status" -eq 0 ]; then
     echo "ALL GATES PASS"
+    if [ -n "$notes" ]; then
+        echo "NOTE: these steps ran nothing:$notes"
+    fi
 else
     echo "GATES FAILED"
 fi

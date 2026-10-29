@@ -20,12 +20,17 @@ detail = "value is an http(s) address"
 [[map]]
 row = "KCA-SP-describe-7"
 mechanism = "Reported-by: trailer"
-detail = "followed by a Closes: or Link: trailer"
+detail = "followed by a Closes: or Link: trailer; a missing trailer is not decidable, because history does not show whether a public report exists"
 
 [[map]]
 row = "KCA-SP-describe-8"
 mechanism = "Fixes: trailer"
-detail = "'Fixes: <12 or more hex> (\"<subject>\")' on one line"
+detail = "'Fixes: <hex id> (\"<subject>\")'; the id is the first 12 characters until 2024-12-30 and at least 12 from then"
+
+[[map]]
+row = "KCA-SP-describe-12"
+mechanism = "Fixes: trailer"
+detail = "the id and the subject are on one line; no continuation line follows the trailer"
 
 [[map]]
 row = "KCA-SP-describe-9"
@@ -65,7 +70,7 @@ detail = "the part after 'subsystem: '"
 [[map]]
 row = "KCA-SP-subject-3"
 mechanism = "first line of the commit message"
-detail = "length in characters"
+detail = "length in characters of the summary phrase, the part after 'subsystem: '; the whole line can be longer"
 
 [[map]]
 row = "KCA-SP-subject-4"
@@ -120,7 +125,7 @@ detail = "'tag: Full Name <address>'"
 [[map]]
 row = "KCA-SK-cc-1"
 mechanism = "Cc: trailer"
-detail = "stable@vger.kernel.org or stable@kernel.org"
+detail = "stable@vger.kernel.org or stable@kernel.org; applies to a stable request by option 1"
 
 [[map]]
 row = "KCA-HR-cc-1"
@@ -140,12 +145,17 @@ detail = "presence; use of an assistant is not visible in history"
 [[map]]
 row = "KCA-CA-attr-2"
 mechanism = "Assisted-by: trailer"
-detail = "'Assisted-by: LLM [tool ...]' at v7.3"
+detail = "'Assisted-by: LLM [tool ...]' from 2026-08-03; the form before that date was 'AGENT_NAME:MODEL_VERSION [tool ...]'"
+
+[[map]]
+row = "KCA-CA-attr-3"
+mechanism = "Assisted-by: trailer"
+detail = "presence, for a fix that an assistant found and wrote; use of an assistant is not visible in history"
 
 [[map]]
 row = "KPA-PR-tag-1"
 mechanism = "mergetag header of the merge commit"
-detail = "a signed tag object that is the second parent"
+detail = "a signed tag object is recorded in the header; the second parent of a two-parent merge is the commit that the tag points to"
 
 [[map]]
 row = "KPA-RM-tag-1"
@@ -174,8 +184,8 @@ detail = "non-empty body; word overlap with the tag message"
 
 [[map]]
 row = "KPA-RM-base-1"
-mechanism = "merge base of the two parents"
-detail = "compared with the tagged releases"
+mechanism = "merge base of the two parents of a two-parent merge"
+detail = "compared with the tagged releases; history does not show whether the branch was moved, so the result is not decidable"
 
 [[map]]
 row = "KPA-RM-rebase-1"
@@ -184,8 +194,8 @@ detail = "not in the integrator's history"
 
 [[map]]
 row = "KPA-RM-back-1"
-mechanism = "merge commits between the first and second parent"
-detail = "a parent already in the upstream history, not at a release tag"
+mechanism = "merge commits inside the requested range"
+detail = "in a two-parent merge, a parent already in the upstream history marks a candidate; a person decides necessity, stable point and immediate upstream; an octopus merge is read parent by parent"
 
 [[map]]
 row = "KPA-RM-back-2"

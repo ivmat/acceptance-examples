@@ -4,5 +4,7 @@ id = "demo"
 [[clause]]
 id = "A-1"
 title = "Start after end"
+source = "a.rst"
+force = "MUST"
 line_start = 10
 line_end = 4

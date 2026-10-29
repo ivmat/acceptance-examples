@@ -1,0 +1,20 @@
+[standard]
+id = "demo"
+
+[[clause]]
+id = "A-1"
+title = "First"
+source = "a.rst"
+force = "MUST"
+line_start = 1
+line_end = 2
+method = "grep"
+
+[[clause]]
+id = "A-2"
+title = "Second"
+source = "a.rst"
+force = "SHOULD"
+line_start = 3
+line_end = 4
+method = "reading"

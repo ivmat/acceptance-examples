@@ -4,6 +4,9 @@ id = "demo"
 [[clause]]
 id = "D-1"
 title = "First row"
+source = "a.rst"
+force = "MUST"
+method = "grep"
 line_start = 3
 line_end = 9
 in_force_from = "2020-01-01"
@@ -12,6 +15,9 @@ in_force_to = "2021-06-30"
 [[clause]]
 id = "D-2"
 title = "Second row"
+source = "b.rst"
+force = "guidance"
+method = "reading"
 line_start = 5
 line_end = 5
 in_force_from = "2020-01-01"

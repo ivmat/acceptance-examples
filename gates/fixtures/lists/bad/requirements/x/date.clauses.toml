@@ -4,4 +4,8 @@ id = "demo"
 [[clause]]
 id = "A-1"
 title = "Bad date"
+source = "a.rst"
+force = "MUST"
+line_start = 1
+line_end = 2
 in_force_from = "2020-13-45"

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Run each implementations/*/*/run_all.sh from its own directory."""
+"""Run each implementations/*/*/run_all.sh from its own directory.
+
+With no package the check passes and says that nothing was run.
+"""
 import os
 import re
 import subprocess
@@ -14,7 +17,7 @@ def check(root, files):
     errors, notes = [], []
     scripts = [f for f in files if PACKAGE_RE.match(f)]
     if not scripts:
-        notes.append("no packages")
+        notes.append("no packages (nothing to run)")
     for rel in scripts:
         cwd = os.path.join(root, os.path.dirname(rel))
         try:

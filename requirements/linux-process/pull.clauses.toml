@@ -16,7 +16,7 @@ slice_note = "A selection of the rules the mainline maintainer applies when acce
 [[clause]]
 id = "KPA-PR-tag-1"
 ref = "pull-requests.rst lines 44-45"
-title = "The request is based on a signed tag"
+title = "A request to the mainline maintainer is based on a signed tag; other maintainers may differ"
 doc = "PR"
 section = "tag"
 ordinal = 1
@@ -28,7 +28,7 @@ line_start = 44
 line_end = 45
 in_force_from = "2017-12-11"
 in_force_basis = "date of the document revision that added the text"
-binding_note = "Git: a signed tag. The merge commit records it in a mergetag header. A Merge tag subject alone is not read as proof."
+binding_note = "Git: a signed tag. The merge commit records the tag object in a mergetag header, and its second parent is the commit that the tag points to. A Merge tag subject alone is not read as proof."
 
 [[clause]]
 id = "KPA-RM-tag-1"
@@ -84,7 +84,7 @@ binding_note = "Git: a Signed-off-by: line in the tag message. The kernel docume
 [[clause]]
 id = "KPA-PR-tag-5"
 ref = "pull-requests.rst lines 47-53"
-title = "The request message says what the request holds, why to take it and what was tested"
+title = "The request message says what the request holds, why to take it and what testing, if any, was done"
 doc = "PR"
 section = "tag"
 ordinal = 5
@@ -117,24 +117,24 @@ binding_note = "Git: the merge commit message. The check tests that the message 
 [[clause]]
 id = "KPA-RM-base-1"
 ref = "rebasing-and-merging.rst lines 71-76"
-title = "The requested history starts from a release point, not an arbitrary revision"
+title = "A branch that is moved to a new base is moved onto a stable point, such as an -rc release, and not onto an arbitrary kernel commit"
 doc = "RM"
 section = "base"
 ordinal = 1
 force = "SHOULD"
 side = "requester"
-method = "mechanical"
+method = "not-decidable-from-history"
 source = "Documentation/maintainer/rebasing-and-merging.rst"
 line_start = 71
 line_end = 76
 in_force_from = "2019-06-18"
 in_force_basis = "date of the document revision that added the text"
-binding_note = "Git: the merge base of the two parents is compared with the tagged releases. The document states the rule for a branch that is moved to a new base; the check cannot see a move."
+binding_note = "Git: the merge base of the two parents of a two-parent merge can be compared with the tagged releases. History does not show whether the branch was moved, so a base that is not a release point is not by itself a deviation."
 
 [[clause]]
 id = "KPA-RM-rebase-1"
-ref = "rebasing-and-merging.rst lines 48-52"
-title = "History already published is not rebased before the request"
+ref = "rebasing-and-merging.rst lines 48-59"
+title = "History that has been exposed beyond a private system is usually not changed; trees known to be rebased, and branches announced as unstable, are exceptions"
 doc = "RM"
 section = "rebase"
 ordinal = 1
@@ -143,7 +143,7 @@ side = "requester"
 method = "not-decidable-from-history"
 source = "Documentation/maintainer/rebasing-and-merging.rst"
 line_start = 48
-line_end = 52
+line_end = 59
 in_force_from = "2019-06-18"
 in_force_basis = "date of the document revision that added the text"
 binding_note = "Git: needs the reflog of the requester's public repository. History in the integrator's repository does not hold it."
@@ -151,19 +151,19 @@ binding_note = "Git: needs the reflog of the requester's public repository. Hist
 [[clause]]
 id = "KPA-RM-back-1"
 ref = "rebasing-and-merging.rst lines 143-162"
-title = "The requested history holds no back merge of upstream, except at a release point"
+title = "A back merge of upstream is avoided almost always; one is allowed when it is necessary, its reason is documented, it takes a well-known stable point and it stays within the immediate upstream tree"
 doc = "RM"
 section = "back"
 ordinal = 1
 force = "SHOULD NOT"
 side = "requester"
-method = "mechanical"
+method = "reading"
 source = "Documentation/maintainer/rebasing-and-merging.rst"
 line_start = 143
 line_end = 162
 in_force_from = "2019-06-18"
 in_force_basis = "date of the document revision that added the text"
-binding_note = "Git: a merge commit inside the requested range with a parent that is already in the upstream history."
+binding_note = "Git: in a two-parent merge inside the requested range, a parent that is already in the upstream history marks a candidate. A person reads the message and the upstream relation to decide whether the conditions hold. An octopus merge is read parent by parent."
 
 [[clause]]
 id = "KPA-RM-back-2"

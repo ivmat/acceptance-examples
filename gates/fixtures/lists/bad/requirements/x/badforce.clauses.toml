@@ -1,0 +1,10 @@
+[standard]
+id = "demo"
+
+[[clause]]
+id = "A-1"
+title = "Force outside the set"
+source = "a.rst"
+force = "REQUIRED"
+line_start = 1
+line_end = 2

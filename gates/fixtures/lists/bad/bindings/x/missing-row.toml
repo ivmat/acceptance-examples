@@ -1,0 +1,7 @@
+[[map]]
+row = "A-1"
+mechanism = "demo"
+
+[[map]]
+row = "NO-SUCH-ROW"
+mechanism = "demo"

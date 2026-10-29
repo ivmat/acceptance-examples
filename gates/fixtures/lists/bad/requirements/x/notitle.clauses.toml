@@ -3,3 +3,7 @@ id = "demo"
 
 [[clause]]
 id = "A-1"
+source = "a.rst"
+force = "MUST"
+line_start = 1
+line_end = 2

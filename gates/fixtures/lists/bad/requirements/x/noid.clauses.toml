@@ -4,3 +4,7 @@ title = "No id here"
 [[clause]]
 id = "A-1"
 title = "Row"
+source = "a.rst"
+force = "MUST"
+line_start = 1
+line_end = 2

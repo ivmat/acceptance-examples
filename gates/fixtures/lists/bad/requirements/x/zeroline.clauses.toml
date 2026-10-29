@@ -1,0 +1,10 @@
+[standard]
+id = "demo"
+
+[[clause]]
+id = "A-1"
+title = "Line zero"
+source = "a.rst"
+force = "MUST"
+line_start = 0
+line_end = 2

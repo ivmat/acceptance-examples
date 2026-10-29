@@ -4,7 +4,15 @@ id = "demo"
 [[clause]]
 id = "A-1"
 title = "Row one"
+source = "a.rst"
+force = "MUST"
+line_start = 1
+line_end = 2
 
 [[clause]]
 id = "A-1"
 title = "Row two"
+source = "a.rst"
+force = "MUST"
+line_start = 1
+line_end = 2

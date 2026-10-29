@@ -14,14 +14,14 @@ slice_note = "All entries of deprecated.rst. A selection of coding-style.rst: th
 [[clause]]
 id = "KCR-DEP-1-1"
 ref = "deprecated.rst section 1"
-title = "The __deprecated attribute is not used to mark an interface"
+title = "An interface marked __deprecated is also removed from the kernel or listed in deprecated.rst; the attribute is a fine note in a header but is not the full solution"
 doc = "DEP"
 section = "1"
-force = "SHOULD NOT"
+force = "MUST"
 side = "author"
-method = "grep"
+method = "grep+reading"
 source = "Documentation/process/deprecated.rst"
-line_start = 20
+line_start = 22
 line_end = 30
 
 [[clause]]
@@ -53,10 +53,10 @@ line_end = 52
 [[clause]]
 id = "KCR-DEP-3-1"
 ref = "deprecated.rst section 3"
-title = "No open-coded arithmetic in an allocator size argument"
+title = "Dynamic size arithmetic, especially multiplication, is not done in an allocator size argument; a literal the compiler can check is an exception, though refactoring is preferred"
 doc = "DEP"
 section = "3"
-force = "MUST NOT"
+force = "SHOULD NOT"
 side = "author"
 method = "grep"
 source = "Documentation/process/deprecated.rst"
@@ -66,15 +66,15 @@ line_end = 64
 [[clause]]
 id = "KCR-DEP-3-2"
 ref = "deprecated.rst section 3"
-title = "A count-times-size allocation uses the two-factor allocator form"
+title = "An allocation of count times size uses the two-factor allocator form; where none exists, the saturating helpers are used"
 doc = "DEP"
 section = "3"
-force = "MUST"
+force = "SHOULD"
 side = "author"
 method = "grep"
 source = "Documentation/process/deprecated.rst"
 line_start = 66
-line_end = 75
+line_end = 80
 
 [[clause]]
 id = "KCR-DEP-3-3"
@@ -95,7 +95,7 @@ ref = "deprecated.rst section 3"
 title = "Other size calculations compose size_mul(), size_add() and size_sub()"
 doc = "DEP"
 section = "3"
-force = "MUST"
+force = "SHOULD"
 side = "author"
 method = "grep"
 source = "Documentation/process/deprecated.rst"
@@ -105,10 +105,10 @@ line_end = 106
 [[clause]]
 id = "KCR-DEP-4-1"
 ref = "deprecated.rst section 4"
-title = "No simple_strtol(), simple_strtoll(), simple_strtoul() or simple_strtoull()"
+title = "simple_strtol(), simple_strtoll(), simple_strtoul() and simple_strtoull() ignore overflow; the kstrto*() functions tend to be the replacements"
 doc = "DEP"
 section = "4"
-force = "MUST NOT"
+force = "guidance"
 side = "author"
 method = "checkpatch+grep"
 source = "Documentation/process/deprecated.rst"
@@ -118,10 +118,10 @@ line_end = 120
 [[clause]]
 id = "KCR-DEP-5-1"
 ref = "deprecated.rst section 5"
-title = "No strcpy() calls"
+title = "New code adds no strcpy() call; strscpy() is the safe replacement"
 doc = "DEP"
 section = "5"
-force = "MUST NOT"
+force = "SHOULD NOT"
 side = "author"
 method = "checkpatch+grep"
 source = "Documentation/process/deprecated.rst"
@@ -131,10 +131,10 @@ line_end = 132
 [[clause]]
 id = "KCR-DEP-6-1"
 ref = "deprecated.rst section 6"
-title = "No strncpy() calls"
+title = "strncpy() has been removed from the kernel; the listed replacements serve"
 doc = "DEP"
 section = "6"
-force = "MUST NOT"
+force = "guidance"
 side = "author"
 method = "checkpatch+grep"
 source = "Documentation/process/deprecated.rst"
@@ -144,10 +144,10 @@ line_end = 159
 [[clause]]
 id = "KCR-DEP-7-1"
 ref = "deprecated.rst section 7"
-title = "No strlcpy() calls"
+title = "strlcpy() reads the whole source first and can over-read; strscpy() is the safe replacement"
 doc = "DEP"
 section = "7"
-force = "MUST NOT"
+force = "guidance"
 side = "author"
 method = "checkpatch+grep"
 source = "Documentation/process/deprecated.rst"
@@ -157,10 +157,10 @@ line_end = 168
 [[clause]]
 id = "KCR-DEP-8-1"
 ref = "deprecated.rst section 8"
-title = "No plain %p in a format string"
+title = "New uses of plain %p are not added to a format string; %pS suits text addresses"
 doc = "DEP"
 section = "8"
-force = "MUST NOT"
+force = "SHOULD NOT"
 side = "author"
 method = "grep"
 source = "Documentation/process/deprecated.rst"
@@ -170,10 +170,10 @@ line_end = 178
 [[clause]]
 id = "KCR-DEP-9-1"
 ref = "deprecated.rst section 9"
-title = "No variable-length arrays"
+title = "Variable-length arrays on the stack are eliminated; they cost performance and are a security risk"
 doc = "DEP"
 section = "9"
-force = "MUST NOT"
+force = "guidance"
 side = "author"
 method = "compiler"
 source = "Documentation/process/deprecated.rst"
@@ -209,10 +209,10 @@ line_end = 240
 [[clause]]
 id = "KCR-DEP-11-1"
 ref = "deprecated.rst section 11"
-title = "No zero-length array as a trailing member"
+title = "A zero-length array is not used as a trailing member; a flexible array member is used"
 doc = "DEP"
 section = "11"
-force = "MUST NOT"
+force = "SHOULD NOT"
 side = "author"
 method = "grep"
 source = "Documentation/process/deprecated.rst"
@@ -222,10 +222,10 @@ line_end = 248
 [[clause]]
 id = "KCR-DEP-11-2"
 ref = "deprecated.rst section 11"
-title = "No one-element array as a trailing member"
+title = "A one-element array is not used as a trailing member; a flexible array member is used"
 doc = "DEP"
 section = "11"
-force = "MUST NOT"
+force = "SHOULD NOT"
 side = "author"
 method = "grep"
 source = "Documentation/process/deprecated.rst"
@@ -248,10 +248,10 @@ line_end = 379
 [[clause]]
 id = "KCR-DEP-12-1"
 ref = "deprecated.rst section 12"
-title = "Allocation assignments use the kmalloc_obj() family"
+title = "Open-coded kmalloc()-family assignments for struct objects are replaced by the kmalloc_obj() family"
 doc = "DEP"
 section = "12"
-force = "SHOULD"
+force = "guidance"
 side = "author"
 method = "grep"
 source = "Documentation/process/deprecated.rst"
@@ -261,7 +261,7 @@ line_end = 411
 [[clause]]
 id = "KCR-CS-1-1"
 ref = "coding-style.rst chapter 1"
-title = "Indentation uses tabs of eight columns; spaces are not used for indentation"
+title = "Outside comments, documentation and Kconfig, indentation uses tabs of eight columns and never spaces"
 doc = "CS"
 section = "1"
 force = "MUST"
@@ -366,7 +366,7 @@ line_end = 108
 [[clause]]
 id = "KCR-CS-2-2"
 ref = "coding-style.rst chapter 2"
-title = "Wrapped lines are shorter than the parent and align to the open parenthesis"
+title = "A wrapped continuation is substantially shorter than its parent and placed to the right of it; aligning to the open parenthesis is a common style"
 doc = "CS"
 section = "2"
 force = "SHOULD"
@@ -574,14 +574,14 @@ line_end = 317
 [[clause]]
 id = "KCR-CS-4-2"
 ref = "coding-style.rst chapter 4"
-title = "Global names are descriptive"
+title = "Global variables and global functions have descriptive names"
 doc = "CS"
 section = "4"
-force = "guidance"
+force = "MUST"
 side = "author"
 method = "reading"
 source = "Documentation/process/coding-style.rst"
-line_start = 319
+line_start = 315
 line_end = 322
 
 [[clause]]
@@ -590,7 +590,7 @@ ref = "coding-style.rst chapter 4"
 title = "No Hungarian notation in names"
 doc = "CS"
 section = "4"
-force = "MUST NOT"
+force = "guidance"
 side = "author"
 method = "grep"
 source = "Documentation/process/coding-style.rst"
@@ -600,7 +600,7 @@ line_end = 326
 [[clause]]
 id = "KCR-CS-4-4"
 ref = "coding-style.rst chapter 4"
-title = "No new master/slave or blacklist/whitelist terms"
+title = "New usage of master/slave and blacklist/whitelist is avoided; keeping a userspace interface, or following an existing specification that mandates the terms, is an exception"
 doc = "CS"
 section = "4"
 force = "SHOULD NOT"
@@ -613,7 +613,7 @@ line_end = 357
 [[clause]]
 id = "KCR-CS-5-1"
 ref = "coding-style.rst chapter 5"
-title = "No typedef for a structure or pointer"
+title = "A typedef is not used for a structure or a pointer; the document lists exceptions: opaque objects, clear integer types, sparse type checks, types identical to C99 types in exceptional cases, and types safe for userspace"
 doc = "CS"
 section = "5"
 force = "MUST NOT"
@@ -621,29 +621,29 @@ side = "author"
 method = "checkpatch+grep"
 source = "Documentation/process/coding-style.rst"
 line_start = 362
-line_end = 364
+line_end = 440
 
 [[clause]]
 id = "KCR-CS-6-1"
 ref = "coding-style.rst chapter 6"
-title = "A function fits one or two screens of text (48 lines)"
+title = "A function is short, does one thing and fits on one or two screens of text; a long but simple case-statement function is an exception"
 doc = "CS"
 section = "6"
-force = "guidance"
+force = "SHOULD"
 side = "author"
-method = "grep"
+method = "grep+reading"
 source = "Documentation/process/coding-style.rst"
 line_start = 446
 line_end = 454
-note = "Measured from the signature line to the closing brace. The case-statement exemption is not applied."
+note = "Measured from the signature line to the closing brace. The count does not apply the case-statement exception, so a person reads a long function."
 
 [[clause]]
 id = "KCR-CS-6-2"
 ref = "coding-style.rst chapter 6"
-title = "A function has no more than ten local variables"
+title = "A function does not have more than 5 to 10 local variables; the check uses ten"
 doc = "CS"
 section = "6"
-force = "guidance"
+force = "SHOULD NOT"
 side = "author"
 method = "grep"
 source = "Documentation/process/coding-style.rst"
@@ -666,10 +666,10 @@ line_end = 472
 [[clause]]
 id = "KCR-CS-6-4"
 ref = "coding-style.rst chapter 6"
-title = "The EXPORT macro follows the function's closing brace at once"
+title = "The EXPORT macro of an exported function follows the closing brace line at once"
 doc = "CS"
 section = "6"
-force = "MUST"
+force = "SHOULD"
 side = "author"
 method = "checkpatch+grep"
 source = "Documentation/process/coding-style.rst"
@@ -718,14 +718,14 @@ line_end = 540
 [[clause]]
 id = "KCR-CS-7-2"
 ref = "coding-style.rst chapter 7"
-title = "A function with several exits and cleanup uses a goto exit"
+title = "A goto helps a function that exits from several places and cleans up; with no cleanup the function returns directly"
 doc = "CS"
 section = "7"
-force = "SHOULD"
+force = "guidance"
 side = "author"
 method = "grep"
 source = "Documentation/process/coding-style.rst"
-line_start = 532
+line_start = 529
 line_end = 534
 
 [[clause]]
@@ -757,7 +757,7 @@ line_end = 633
 [[clause]]
 id = "KCR-CS-8-2"
 ref = "coding-style.rst chapter 8"
-title = "Kernel API functions carry a kernel-doc comment"
+title = "A comment on a kernel API function uses the kernel-doc format; boilerplate that only repeats the signature is not added"
 doc = "CS"
 section = "8"
 force = "SHOULD"
@@ -770,14 +770,28 @@ line_end = 620
 [[clause]]
 id = "KCR-CS-8-3"
 ref = "coding-style.rst chapter 8"
-title = "Comments say what the code does, not how; few comments sit inside function bodies"
+title = "A comment does not explain how the code works; it tells what the code does"
 doc = "CS"
 section = "8"
-force = "guidance"
+force = "MUST NOT"
 side = "author"
 method = "reading"
 source = "Documentation/process/coding-style.rst"
 line_start = 601
+line_end = 606
+
+[[clause]]
+id = "KCR-CS-8-5"
+ref = "coding-style.rst chapter 8"
+title = "Comments inside a function body are avoided; small notes on a clever or ugly part are allowed, and the comment at the function head says what it does"
+doc = "CS"
+section = "8"
+ordinal = 5
+force = "guidance"
+side = "author"
+method = "reading"
+source = "Documentation/process/coding-style.rst"
+line_start = 606
 line_end = 613
 
 [[clause]]
@@ -796,7 +810,7 @@ line_end = 638
 [[clause]]
 id = "KCR-CS-11-1"
 ref = "coding-style.rst chapter 11"
-title = "Shared data structures carry a reference count"
+title = "A data structure visible outside the single-threaded environment that creates and destroys it carries a reference count"
 doc = "CS"
 section = "11"
 force = "SHOULD"
@@ -822,10 +836,10 @@ line_end = 802
 [[clause]]
 id = "KCR-CS-12-2"
 ref = "coding-style.rst chapter 12"
-title = "A multi-statement macro is wrapped in do { } while (0)"
+title = "A macro with multiple statements is enclosed in a do-while block"
 doc = "CS"
 section = "12"
-force = "MUST"
+force = "SHOULD"
 side = "author"
 method = "checkpatch+grep"
 source = "Documentation/process/coding-style.rst"
@@ -874,10 +888,10 @@ line_end = 878
 [[clause]]
 id = "KCR-CS-12-6"
 ref = "coding-style.rst chapter 12"
-title = "Several related constants are preferably an enum"
+title = "An enum is preferred when several related constants are defined"
 doc = "CS"
 section = "12"
-force = "guidance"
+force = "SHOULD"
 side = "author"
 method = "grep"
 source = "Documentation/process/coding-style.rst"
@@ -887,14 +901,14 @@ line_end = 804
 [[clause]]
 id = "KCR-CS-12-7"
 ref = "coding-style.rst chapter 12"
-title = "A function-like macro that an inline function can replace is an inline function"
+title = "A function-like macro with unused parameters is replaced by a static inline function; inline functions are generally preferable to function-like macros"
 doc = "CS"
 section = "12"
 force = "SHOULD"
 side = "author"
 method = "grep"
 source = "Documentation/process/coding-style.rst"
-line_start = 821
+line_start = 809
 line_end = 834
 
 [[clause]]
@@ -913,7 +927,7 @@ line_end = 905
 [[clause]]
 id = "KCR-CS-13-2"
 ref = "coding-style.rst chapter 13"
-title = "Kernel messages do not end with a period"
+title = "A kernel message needs no terminating period"
 doc = "CS"
 section = "13"
 force = "guidance"
@@ -952,10 +966,10 @@ line_end = 917
 [[clause]]
 id = "KCR-CS-13-5"
 ref = "coding-style.rst chapter 13"
-title = "A working driver is quiet: no info or notice messages on the normal path"
+title = "On the normal path, a working driver is quiet: messages use dev_dbg() or pr_debug() unless something is wrong"
 doc = "CS"
 section = "13"
-force = "guidance"
+force = "SHOULD"
 side = "author"
 method = "grep"
 source = "Documentation/process/coding-style.rst"
@@ -978,10 +992,10 @@ line_end = 952
 [[clause]]
 id = "KCR-CS-14-2"
 ref = "coding-style.rst chapter 14"
-title = "No cast of the void pointer an allocator returns"
+title = "A cast of the void pointer that an allocator returns is redundant"
 doc = "CS"
 section = "14"
-force = "MUST NOT"
+force = "guidance"
 side = "author"
 method = "grep"
 source = "Documentation/process/coding-style.rst"
@@ -991,10 +1005,10 @@ line_end = 956
 [[clause]]
 id = "KCR-CS-14-3"
 ref = "coding-style.rst chapter 14"
-title = "No extra message after an allocation failure"
+title = "An allocator call made without __GFP_NOWARN needs no extra failure message after a NULL return"
 doc = "CS"
 section = "14"
-force = "SHOULD NOT"
+force = "guidance"
 side = "author"
 method = "checkpatch+grep"
 source = "Documentation/process/coding-style.rst"
@@ -1004,10 +1018,10 @@ line_end = 975
 [[clause]]
 id = "KCR-CS-15-1"
 ref = "coding-style.rst chapter 15"
-title = "No inline on a function longer than three lines"
+title = "A rule of thumb: inline is not put on a function of more than three lines, except where a compile-time constant argument lets the compiler optimize most of the function away"
 doc = "CS"
 section = "15"
-force = "SHOULD NOT"
+force = "guidance"
 side = "author"
 method = "grep"
 source = "Documentation/process/coding-style.rst"
@@ -1017,33 +1031,47 @@ line_end = 995
 [[clause]]
 id = "KCR-CS-16-1"
 ref = "coding-style.rst chapter 16"
-title = "Public and exported functions return -Exxx or a success boolean, never a bare -1"
-doc = "CS"
-section = "16"
-force = "MUST"
-side = "author"
-method = "grep"
-source = "Documentation/process/coding-style.rst"
-line_start = 1029
-line_end = 1030
-
-[[clause]]
-id = "KCR-CS-16-2"
-ref = "coding-style.rst chapter 16"
-title = "Static functions also return -Exxx or a success boolean"
+title = "A public function follows the return convention: a name that is an action or command returns an error-code integer (-Exxx on failure), a name that is a predicate returns a succeeded boolean; a function that returns a computed result or a pointer is exempt"
 doc = "CS"
 section = "16"
 force = "SHOULD"
 side = "author"
-method = "grep"
+method = "grep+reading"
 source = "Documentation/process/coding-style.rst"
-line_start = 1030
-line_end = 1031
+line_start = 1008
+line_end = 1037
+
+[[clause]]
+id = "KCR-CS-16-2"
+ref = "coding-style.rst chapter 16"
+title = "A private (static) function need not follow the return convention, but it is recommended; the exemption for a computed result or a pointer applies"
+doc = "CS"
+section = "16"
+force = "SHOULD"
+side = "author"
+method = "grep+reading"
+source = "Documentation/process/coding-style.rst"
+line_start = 1008
+line_end = 1037
+
+[[clause]]
+id = "KCR-CS-16-3"
+ref = "coding-style.rst chapter 16"
+title = "An exported function follows the return convention: a name that is an action or command returns an error-code integer (-Exxx on failure), a name that is a predicate returns a succeeded boolean; a function that returns a computed result or a pointer is exempt"
+doc = "CS"
+section = "16"
+ordinal = 3
+force = "MUST"
+side = "author"
+method = "grep+reading"
+source = "Documentation/process/coding-style.rst"
+line_start = 1008
+line_end = 1037
 
 [[clause]]
 id = "KCR-CS-17-1"
 ref = "coding-style.rst chapter 17"
-title = "bool values use true and false, with no !! construction"
+title = "bool values are set with true and false, not 1 and 0"
 doc = "CS"
 section = "17"
 force = "SHOULD"
@@ -1052,6 +1080,20 @@ method = "grep"
 source = "Documentation/process/coding-style.rst"
 line_start = 1048
 line_end = 1049
+
+[[clause]]
+id = "KCR-CS-17-2"
+ref = "coding-style.rst chapter 17"
+title = "The !! construction is not needed on a bool value"
+doc = "CS"
+section = "17"
+ordinal = 2
+force = "guidance"
+side = "author"
+method = "grep"
+source = "Documentation/process/coding-style.rst"
+line_start = 1043
+line_end = 1046
 
 [[clause]]
 id = "KCR-CS-18-1"
@@ -1121,10 +1163,10 @@ line_end = 1209
 [[clause]]
 id = "KCR-CS-22-1"
 ref = "coding-style.rst chapter 22"
-title = "No panic() outside system boot"
+title = "panic() is used with care and primarily only during system boot"
 doc = "CS"
 section = "22"
-force = "SHOULD NOT"
+force = "SHOULD"
 side = "author"
 method = "grep"
 source = "Documentation/process/coding-style.rst"
@@ -1134,7 +1176,7 @@ line_end = 1223
 [[clause]]
 id = "KCR-CS-22-2"
 ref = "coding-style.rst chapter 22"
-title = "No new BUG() variants; use WARN_ON_ONCE() with recovery"
+title = "No new code uses a BUG() variant; a WARN*() variant, preferably WARN_ON_ONCE(), is used, with recovery where one is reasonable; BUG() stays allowed only for a major corruption with no way on, with good justification"
 doc = "CS"
 section = "22"
 force = "MUST NOT"
