@@ -16,4 +16,8 @@ State the scope and limits of each claim.
 Lists are flat today. A later format version may let a row split into child rows.
 More manifests will follow.
 
+## Checks
+
+Run `bash gates/run_all.sh` to check the lists, links, text hygiene, secrets, licence files and packages.
+
 License: Apache-2.0 OR MIT, at your option. See `LICENSE-APACHE` and `LICENSE-MIT`.

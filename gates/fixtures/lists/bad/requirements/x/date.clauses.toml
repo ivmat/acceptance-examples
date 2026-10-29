@@ -1,0 +1,7 @@
+[standard]
+id = "demo"
+
+[[clause]]
+id = "A-1"
+title = "Bad date"
+in_force_from = "2020-13-45"

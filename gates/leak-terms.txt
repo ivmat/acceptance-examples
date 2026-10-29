@@ -1,0 +1,13 @@
+# One term per line. Case-insensitive literal. A "re:" prefix marks a regular expression.
+/Users/
+/home/
+/private/tmp
+C:\
+scratchpad
+acceptance-pilots
+driver-mail
+.driver-active
+governor
+estate
+owner word
+re:\bD-\d{4}\b

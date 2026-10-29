@@ -1,0 +1,8 @@
+[standard]
+id = "demo"
+
+[[clause]]
+id = "A-1"
+title = "Not an integer"
+line_start = "10"
+line_end = 12

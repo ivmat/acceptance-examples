@@ -1,0 +1,8 @@
+[standard]
+id = "demo"
+
+[[clause]]
+id = "A-1"
+title = "From after to"
+in_force_from = "2022-01-01"
+in_force_to = "2021-01-01"

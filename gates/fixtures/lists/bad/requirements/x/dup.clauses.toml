@@ -1,0 +1,10 @@
+[standard]
+id = "demo"
+
+[[clause]]
+id = "A-1"
+title = "Row one"
+
+[[clause]]
+id = "A-1"
+title = "Row two"
